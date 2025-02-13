@@ -1,6 +1,7 @@
 "use client";
 
 import { Listbox } from "@headlessui/react";
+import { ChevronDown, CircleChevronDown } from "lucide-react";
 
 interface SelectProps<T> {
   value: T;
@@ -11,7 +12,7 @@ interface SelectProps<T> {
 export function Select<T>({ children, value, onChange }: SelectProps<T>) {
   return (
     <Listbox value={value} onChange={onChange}>
-      <div className="relative">{children}</div>
+      <div className="relative left-0 w-1/2">{children}</div>
     </Listbox>
   );
 }

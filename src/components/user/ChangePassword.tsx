@@ -33,6 +33,7 @@ const ChangePassword = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full bg-white border border-gray-400 text-black px-3 py-2 rounded-md pr-10 focus:outline-none"
               required
+              autoComplete="current-password"
             />
             <button
               type="button"
@@ -57,6 +58,7 @@ const ChangePassword = () => {
               onChange={(e) => setNewPassword(e.target.value)}
               className="w-full bg-white border border-gray-400 text-black px-3 py-2 rounded-md pr-10 focus:outline-none"
               required
+              autoComplete="new-password"
             />
             <button
               type="button"
@@ -81,6 +83,7 @@ const ChangePassword = () => {
               onChange={(e) => setRePassword(e.target.value)}
               className="w-full bg-white border border-gray-400 text-black px-3 py-2 rounded-md pr-10 focus:outline-none"
               required
+              autoComplete="new-password"
             />
             <button
               type="button"
