@@ -14,7 +14,7 @@ const CommonError = ({ title, subtext }) => {
           />
           <h1 className="mt-8 text-2xl sm:text-3xl font-black">{title}</h1>
           <p className="text-sm font-semibold mt-2">{subtext}</p>
-          <button onClick={() => router.push("/")} className="mt-7 mx-auto">Back to Home</button>
+          <button onClick={() => router.push("/dashboard")} className="mt-7 mx-auto">Back to Home</button>
         </div>
       </div>
     </div>

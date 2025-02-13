@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Input from "@/components/ui/input"
 
-// Define TypeScript interfaces
 interface MetricBox {
   title: string
   value: number
@@ -21,17 +20,6 @@ interface Market {
   market: string
   amount: number
 }
-
-// interface UserCount {
-//   role: string
-//   count: number
-// }
-
-// interface GameplayDetails {
-//   totalBets: number
-//   totalBetAmount: number
-//   totalPL: number
-// }
 
 interface CasinoDetail {
   name: string
@@ -65,8 +53,8 @@ const casinoDetails: CasinoDetail[] = [
 ]
 
 export default function Dashboard() {
-  const [fromDate, setFromDate] = useState("2025-02-10")
-  const [toDate, setToDate] = useState("2025-02-17")
+  const [fromDate, setFromDate] = useState(new Date().toLocaleDateString("en-CA"));
+  const [toDate, setToDate] = useState(new Date(new Date().setMonth(new Date().getMonth() + 1)).toLocaleDateString("en-CA"));  
   const [selectedSport, setSelectedSport] = useState("cricket");
 
   return (

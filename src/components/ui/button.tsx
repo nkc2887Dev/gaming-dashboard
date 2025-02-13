@@ -1,24 +1,3 @@
-// import React from "react";
-
-// interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-//   children: React.ReactNode;
-// }
-
-// const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
-//   return (
-//     <button
-//       {...props}
-//       className={`w-full bg-gradient-to-b from-[#00a3cc] to-[#008fb3] 
-//       hover:from-[#008fb3] hover:to-[#007a99] text-white font-medium 
-//       py-2 rounded-md transition-all duration-200 ease-in-out ${className}`}
-//     >
-//       {children}
-//     </button>
-//   );
-// };
-
-// export default Button;
-
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";

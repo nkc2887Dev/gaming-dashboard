@@ -4,6 +4,8 @@ import { useState } from "react"
 import Input from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { RefreshCw, Eye, EyeOff } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link"
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
@@ -23,11 +25,10 @@ export default function LoginForm() {
     setCaptchaAnswer("")
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const correctAnswer = captcha.num1 + captcha.num2
     if (Number.parseInt(captchaAnswer) === correctAnswer) {
-      // Handle login logic here
       console.log("Login successful")
     } else {
       alert("Incorrect CAPTCHA answer")
@@ -40,7 +41,7 @@ export default function LoginForm() {
       <div className="w-full max-w-xs bg-black rounded-md p-6 shadow-xl border-4 border-gray-700">
         {/* Logo */}
         <div className="flex justify-center mb-4 text-white">
-          <img src="/logo.png" alt="GAJANAND" className="h-10" />
+          <Image src="/logo.png" alt="GAJANAND" width={100} height={40} priority />
         </div>
   
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -100,7 +101,7 @@ export default function LoginForm() {
             type="submit"
             className="w-full bg-gradient-to-b from-[#00a3cc] to-[#008fb3] hover:from-[#008fb3] hover:to-[#007a99] text-white font-medium py-2 rounded-md shadow-md"
           >
-            LOGIN
+            <Link href="/dashboard">LOGIN</Link>
           </Button>
           </div>
         </form>
