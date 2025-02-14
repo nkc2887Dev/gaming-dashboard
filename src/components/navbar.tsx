@@ -13,6 +13,7 @@ import Link from "next/link";
 import SportsMenu from "./sportsMenu";
 import { useEffect, useState } from "react";
 import UserStats from "./userstats";
+import { useRouter } from "next/router";
 
 const NAVBAR_MENU = {
   SETTLEMENT: "settlement",
@@ -25,7 +26,15 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const router = useRouter();
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, path:string) => {
+    if (router.pathname === path) {
+      e.preventDefault();
+    }else{
+      router.push(path);
+    }
+  };
   const toggleDropdown = (dropdownName: string) => {
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
@@ -61,7 +70,7 @@ export default function Navbar() {
           <Link className="block p-2 hover:bg-[#16A4BC]" href="/dashboard">
             Dashboard
           </Link>
-          <Link className="block p-2 hover:bg-[#16A4BC]" href="/client">
+          <Link className="block p-2 hover:bg-[#16A4BC]" href="/client" onClick={(e)=>handleClick(e, "/client")}>
             Clients
           </Link>
           <Link className="block p-2 hover:bg-[#16A4BC]" href="/sport-analysis">
@@ -77,21 +86,21 @@ export default function Navbar() {
               Settlement <ArrowBigDownDash className="h-4 w-4 text-white" />
             </button>
             {/* {activeDropdown === NAVBAR_MENU.SETTLEMENT && ( */}
-              <div className="z-[9999] absolute left-0 mt-2 w-40 bg-[#16A4BC] text-white py-2 rounded shadow-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link
-                  href="/settlement/user"
-                  className="block p-2 hover:bg-[#017082] text-sm"
-                >
-                  User Settlement
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/settlement/master"
-                  className="block p-2 hover:bg-[#017082] text-sm"
-                >
-                  Master Settlement
-                </Link>
-              </div>
+            <div className="z-[9999] absolute left-0 mt-2 w-40 bg-[#16A4BC] text-white py-2 rounded shadow-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <Link
+                href="/settlement/user"
+                className="block p-2 hover:bg-[#017082] text-sm"
+              >
+                User Settlement
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/settlement/master"
+                className="block p-2 hover:bg-[#017082] text-sm"
+              >
+                Master Settlement
+              </Link>
+            </div>
             {/* )} */}
           </div>
 
@@ -104,84 +113,84 @@ export default function Navbar() {
               Reports <ArrowBigDownDash className="h-4 w-4 text-white" />
             </button>
             {/* {activeDropdown === NAVBAR_MENU.REPORT && ( */}
-              <div className="z-[9999] absolute left-0 mt-2 w-52 bg-[#16A4BC] text-white py-1 rounded shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link
-                  href="/report/user-detail"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  User Detail
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/account-statement"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Account Statement
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/settlement-balance"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Settlement/Balance Report
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/transaction"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Transaction Report
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/current-bets"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Current Bets
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/profit-loss"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Profit & Loss Report
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/event-profit-loss"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Event Profit & Loss Report
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/bet-history"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Bet History
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/live-bets"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Live Bets
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/sports-revenue"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  Sports Revenue
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/report/ip-lookup"
-                  className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
-                >
-                  IP Lookup
-                </Link>
-              </div>
+            <div className="z-[9999] absolute left-0 mt-2 w-52 bg-[#16A4BC] text-white py-1 rounded shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <Link
+                href="/report/user-detail"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                User Detail
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/account-statement"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Account Statement
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/settlement-balance"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Settlement/Balance Report
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/transaction"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Transaction Report
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/current-bets"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Current Bets
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/profit-loss"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Profit & Loss Report
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/event-profit-loss"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Event Profit & Loss Report
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/bet-history"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Bet History
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/live-bets"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Live Bets
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/sports-revenue"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                Sports Revenue
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/report/ip-lookup"
+                className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
+              >
+                IP Lookup
+              </Link>
+            </div>
             {/* )} */}
           </div>
 
@@ -196,21 +205,21 @@ export default function Navbar() {
               Control <ArrowBigDownDash className="h-4 w-4 text-white" />
             </button>
             {/* {activeDropdown === NAVBAR_MENU.CONTROL && ( */}
-              <div className="z-[9999] absolute left-0 mt-2 w-40 bg-[#16A4BC] text-white py-2 rounded shadow-lg  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link
-                  href="/control/user"
-                  className="block p-2 hover:bg-[#017082] text-sm"
-                >
-                  User Control
-                </Link>
-                <div className="border-b border-[#159ab3] w-full"></div>
-                <Link
-                  href="/control/master"
-                  className="block p-2 hover:bg-[#017082] text-sm"
-                >
-                  Master Control
-                </Link>
-              </div>
+            <div className="z-[9999] absolute left-0 mt-2 w-40 bg-[#16A4BC] text-white py-2 rounded shadow-lg  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <Link
+                href="/control/user"
+                className="block p-2 hover:bg-[#017082] text-sm"
+              >
+                User Control
+              </Link>
+              <div className="border-b border-[#159ab3] w-full"></div>
+              <Link
+                href="/control/master"
+                className="block p-2 hover:bg-[#017082] text-sm"
+              >
+                Master Control
+              </Link>
+            </div>
             {/* )} */}
           </div>
         </div>
@@ -255,7 +264,7 @@ export default function Navbar() {
             <CircleChevronDown className="text-white h-4 w-4" />
           )}
         </button>
-        {isOpen && (<UserStats /> )}
+        {isOpen && <UserStats />}
       </div>
 
       {/* Sidebar Menu */}

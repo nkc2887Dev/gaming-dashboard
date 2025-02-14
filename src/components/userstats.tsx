@@ -1,4 +1,5 @@
 import React from "react";
+import ToolTip from "./ui/tooltip";
 
 interface UserData {
   id: string;
@@ -38,80 +39,51 @@ const tooltips = {
 
 const UserStats: React.FC = () => {
   return (
-    <div className="text-white p-4 flex justify-between items-center rounded-lg shadow-md">
-      <div className="flex flex-col">
-      <p className="relative group">
-      User ID: 
-          <span className="cursor-pointer"> {userData.id}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.id}
-          </span>
-        </p>
-      <p className="relative group">
-      User Type: 
-          <span className="cursor-pointer"> {userData.type}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.type}
-          </span>
-        </p>
-        {/* <p>User ID: <span className="font-semibold">{userData.id}</span></p> */}
-        {/* <p>User Type: <span className="font-semibold">{userData.type}</span></p> */}
-      </div>
+    <div className="text-white p-4 px-16 flex justify-between items-center rounded-lg shadow-md">
       <div className="flex flex-col">
         <p className="relative group">
-          Given Bal: 
-          <span className="text-green-400 cursor-pointer"> {userData.givenBalance.toFixed(2)}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.givenBalance}
-          </span>
+          User ID:
+          <ToolTip text={tooltips.id} value={userData.id} className="" />
         </p>
         <p className="relative group">
-          Available: 
-          <span className="text-green-400 cursor-pointer"> {userData.availableBalance.toFixed(2)}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.availableBalance}
-          </span>
+          User Type:
+          <ToolTip text={tooltips.type} value={userData.type} className="" />
         </p>
       </div>
       <div className="flex flex-col">
         <p className="relative group">
-          Up Line: 
-          <span className="cursor-pointer"> {userData.upLine}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.upLine}
-          </span>
+          Given Bal:
+          <ToolTip text={tooltips.givenBalance} value={userData.givenBalance.toFixed(2)} className="text-green-400" />
         </p>
         <p className="relative group">
-          Down Line: 
-          <span className="cursor-pointer"> {userData.downLine}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.downLine}
-          </span>
+          Available:
+          <ToolTip text={tooltips.availableBalance} value={userData.availableBalance.toFixed(2)} className="text-green-400" />
         </p>
       </div>
       <div className="flex flex-col">
         <p className="relative group">
-          Current P&L: 
-          <span className="cursor-pointer"> {userData.currentPL}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.currentPL}
-          </span>
+          Up Line:
+          <ToolTip text={tooltips.upLine} value={userData.upLine} className="" />
         </p>
         <p className="relative group">
-          Exposure: 
-          <span className="cursor-pointer"> {userData.exposure}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.exposure}
-          </span>
+          Down Line:
+          <ToolTip text={tooltips.downLine} value={userData.downLine} className="" />
         </p>
       </div>
       <div className="flex flex-col">
         <p className="relative group">
-          My P&L: 
-          <span className="cursor-pointer"> {userData.myPL}</span>
-          <span className="absolute left-0 mt-1 hidden group-hover:block bg-black text-white text-xs p-2 rounded-md z-50">
-            {tooltips.myPL}
-          </span>
+          Current P&L:
+          <ToolTip text={tooltips.currentPL} value={userData.currentPL} className="" />
+        </p>
+        <p className="relative group">
+          Exposure:
+          <ToolTip text={tooltips.exposure} value={userData.exposure} className="" />
+        </p>
+      </div>
+      <div className="flex flex-col">
+        <p className="relative group">
+          My P&L:
+          <ToolTip text={tooltips.myPL} value={userData.myPL} className="" />
         </p>
       </div>
     </div>
