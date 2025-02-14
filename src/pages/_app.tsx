@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar";
 import { useRouter } from "next/router";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import ScrollingFooter from "@/components/scrolling-footer";
 // import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -36,11 +37,16 @@ export default function App({ Component, pageProps }: AppProps) {
   //     window.removeEventListener("resize", detectDevTools);
   //   };
   // }, []);
-  
+  const messages = [
+    "1️⃣ Welcome To Our Exchange...",
+    "2️⃣ ICC Champions Trophy Cup TOURNAMENT WINNER Bet Started in Our Exchange....💫💫💫",
+  ]
+  // 📢
   return (
     <div>
       {showNavbar && <Navbar />}
         <Component {...pageProps} />
+        <ScrollingFooter messages={messages} />
     </div>
   );
 }

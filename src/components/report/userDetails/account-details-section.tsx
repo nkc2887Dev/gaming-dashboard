@@ -6,63 +6,35 @@ interface AccountDetailsSectionProps {
   accountDetails: AccountDetails;
 }
 
+const accountFields = [
+  { key: "creditRef", label: "Credit Ref :" },
+  { key: "balance", label: "Balance :" },
+  { key: "availableBalance", label: "Available Balance :" },
+  { key: "pl", label: "P/L :" },
+  { key: "upLineBalance", label: "UpLine Balance :" },
+  { key: "downLineBalance", label: "DownLine Balance :" },
+  { key: "exposure", label: "Exposure :" },
+  { key: "maxProfit", label: "Max Profit :" },
+  { key: "maxBet", label: "Max Bet :" },
+  { key: "betLock", label: "Bet Lock :" },
+  { key: "active", label: "Active :" },
+  { key: "createdOn", label: "Created On :" },
+];
 export function AccountDetailsSection({
   accountDetails,
 }: AccountDetailsSectionProps) {
   return (
-    <Card className="mb-4 relative">
-      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-semibold">
+    <Card className="mb-4 relative bg-[#F7F7F8]">
+      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
         Account Details:
       </div>
-      <CardContent className="py-7 grid grid-cols-4 gap-4">
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Credit Ref :</Label>
-          <span>{accountDetails.creditRef}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Balance :</Label>
-          <span>{accountDetails.balance}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Available Balance :</Label>
-          <span>{accountDetails.availableBalance}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">P/L :</Label>
-          <span>{accountDetails.pl || "-"}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">UpLine Balance :</Label>
-          <span>{accountDetails.upLineBalance || "-"}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">DownLine Balance :</Label>
-          <span>{accountDetails.downLineBalance || "-"}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Exposure :</Label>
-          <span>{accountDetails.exposure || "-"}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Max Profit :</Label>
-          <span>{accountDetails.maxProfit || "-"}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Max Bet :</Label>
-          <span>{accountDetails.maxBet || "-"}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Bet Lock :</Label>
-          <span>{accountDetails.betLock}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Active :</Label>
-          <span>{accountDetails.active}</span>
-        </div>
-        <div className="flex gap-2">
-          <Label className="w-32 text-gray-600">Created On :</Label>
-          <span>{accountDetails.createdOn}</span>
-        </div>
+      <CardContent className="pt-7 grid grid-cols-4 gap-4">
+        {accountFields.map(({ key, label }) => (
+          <div key={key} className="flex gap-2">
+            <Label className="text-[#73819A]">{label}</Label>
+            <span className="font-semibold">{accountDetails[key as keyof AccountDetails] || "-"}</span>
+          </div>
+        ))}
       </CardContent>
     </Card>
   );

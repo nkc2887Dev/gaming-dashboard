@@ -38,7 +38,7 @@ const ChangePassword = () => {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#73819A]"
             >
               {showPassword ? (
                 <EyeOff className="h-4 w-4" />
@@ -63,7 +63,7 @@ const ChangePassword = () => {
             <button
               type="button"
               onClick={() => setShowNewPassword(!showNewPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#73819A]"
             >
               {showNewPassword ? (
                 <EyeOff className="h-4 w-4" />
@@ -88,7 +88,7 @@ const ChangePassword = () => {
             <button
               type="button"
               onClick={() => setShowRePassword(!showRePassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#73819A]"
             >
               {showRePassword ? (
                 <EyeOff className="h-4 w-4" />

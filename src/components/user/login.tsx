@@ -71,7 +71,7 @@ export default function LoginForm() {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#73819A]"
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
@@ -90,7 +90,7 @@ export default function LoginForm() {
                 required
               />
               <Button type="button" variant="ghost" size="icon" onClick={refreshCaptcha} className="h-8 w-8 p-1">
-                <RefreshCw className="h-4 w-4 text-gray-600" />
+                <RefreshCw className="h-4 w-4 text-[#73819A]" />
               </Button>
             </div>
           </div>

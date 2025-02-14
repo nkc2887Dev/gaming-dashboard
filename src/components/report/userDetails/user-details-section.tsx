@@ -6,47 +6,48 @@ interface UserDetailsSectionProps {
   userDetails: UserDetails;
 }
 
+interface DetailGroupProps {
+  details: { key: keyof UserDetails; label: string }[];
+  userDetails: UserDetails;
+}
+
+const DetailGroup = ({ details, userDetails }: DetailGroupProps) => (
+  <div className="space-y-3">
+    {details.map(({ key, label }) => (
+      <div key={key} className="flex gap-2">
+        <Label className="text-[#73819A]">{label}</Label>
+        <span className="font-semibold">{userDetails[key] || "-"}</span>
+      </div>
+    ))}
+  </div>
+);
+
 export function UserDetailsSection({ userDetails }: UserDetailsSectionProps) {
+  const userDetailGroups: { key: keyof UserDetails; label: string }[][] = [
+    [
+      { key: "userName", label: "User Name :" },
+      { key: "referenceName", label: "Reference Name :" },
+      { key: "parents", label: "Parents :" },
+    ],
+    [
+      { key: "role", label: "Role :" },
+      { key: "email", label: "Email :" },
+    ],
+    [
+      { key: "clientName", label: "Client Name :" },
+      { key: "mobile", label: "Mobile :" },
+    ],
+  ];
+
   return (
-    <Card className="mb-4 relative">
-      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-semibold">
+    <Card className="mb-4 relative bg-[#F7F7F8]">
+      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
         User Details:
       </div>
-      <CardContent className="py-10 grid grid-cols-3 gap-4">
-        <div className="space-y-3">
-          <div className="flex gap-2">
-            <Label className="w-32 text-gray-600">User Name :</Label>
-            <span className="font-semibold">{userDetails.userName}</span>
-          </div>
-          <div className="flex gap-2">
-            <Label className="w-32 text-gray-600">Reference Name :</Label>
-            <span className="font-semibold">{userDetails.referenceName}</span>
-          </div>
-          <div className="flex gap-2">
-            <Label className="w-32 text-gray-600">Parents :</Label>
-            <span className="font-semibold">{userDetails.parents}</span>
-          </div>
-        </div>
-        <div className="space-y-3">
-          <div className="flex gap-2">
-            <Label className="w-32 text-gray-600">Role :</Label>
-            <span className="font-semibold">{userDetails.role}</span>
-          </div>
-          <div className="flex gap-2">
-            <Label className="w-32 text-gray-600">Email :</Label>
-            <span className="font-semibold">{userDetails.email || "-"}</span>
-          </div>
-        </div>
-        <div className="space-y-3">
-          <div className="flex gap-2">
-            <Label className="w-32 text-gray-600">Client Name :</Label>
-            <span className="font-semibold">{userDetails.clientName}</span>
-          </div>
-          <div className="flex gap-2">
-            <Label className="w-32 text-gray-600">Mobile :</Label>
-            <span className="font-semibold">{userDetails.mobile}</span>
-          </div>
-        </div>
+      <CardContent className="pt-10 grid grid-cols-3 gap-4">
+        {userDetailGroups.map((group, index) => (
+          <DetailGroup key={index} details={group} userDetails={userDetails} />
+        ))}
       </CardContent>
     </Card>
   );

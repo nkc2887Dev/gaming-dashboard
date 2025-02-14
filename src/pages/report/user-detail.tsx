@@ -11,7 +11,7 @@ const UserDataPage = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="mx-2 p-6">
+      <div className="m-2 p-6 border rounded">
         <div className="mb-6">
           <h2 className="text-lg font-semibold mb-2">User Details</h2>
           <Input
@@ -23,7 +23,7 @@ const UserDataPage = () => {
           />
         </div>
         <div className="space-y-6">
-          <div className="flex flex-col-2 gap-20">
+          <div className="flex flex-col-1 gap-20">
             <UserDetailsSection userDetails={mockData.userDetails} />
             <SettingsSection />
           </div>

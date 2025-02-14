@@ -41,8 +41,7 @@ const ButtonData = [
 const ElipsButton = ({ label }: { label: string }) => {
   return (
     <Button
-      variant="secondary"
-      className="rounded-full border-black bg-gradient-to-b from-[#004d66] via-[#008080] to-[#00b3b3] text-white transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]"
+      className="rounded-full text-xs font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]"
     >
       {label}
     </Button>
@@ -51,28 +50,28 @@ const ElipsButton = ({ label }: { label: string }) => {
 
 export function SettingsSection() {
   return (
-    <Card className="mb-4 relative">
-      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-semibold">
+    <Card className="mb-4 relative bg-[#F7F7F8]">
+      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
         Settings:
       </div>
       <CardContent>
-        <div className="py-7 grid grid-cols-4 gap-4 mb-4">
+        <div className="pt-7 grid grid-cols-4 gap-2 mb-4">
           {ButtonData.map((button) => {
             return <ElipsButton key={button.id} label={button.label} />;
           })}
         </div>
-        <div className="flex gap-8">
+        <div className="flex gap-8 ml-2">
           <div className="flex items-center space-x-2">
             <Checkbox id="userLock" />
-            <Label htmlFor="userLock">User Lock</Label>
+            <Label htmlFor="userLock" className="text-sm">User Lock</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="betLock" />
-            <Label htmlFor="betLock">Bet Lock</Label>
+            <Label htmlFor="betLock" className="text-sm">Bet Lock</Label>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox id="checkLimit" />
-            <Label htmlFor="checkLimit">Check Limit</Label>
+            <Label htmlFor="checkLimit" className="text-sm">Check Limit</Label>
           </div>
         </div>
       </CardContent>
