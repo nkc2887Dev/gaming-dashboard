@@ -1,0 +1,38 @@
+import { mockData } from "@/lib/user-details";
+import { useState } from "react";
+import Input from "@/components/ui/input";
+import { UserDetailsSection } from "@/components/report/userDetails/user-details-section";
+import { SettingsSection } from "@/components/report/userDetails/settings-section";
+import { AccountDetailsSection } from "@/components/report/userDetails/account-details-section";
+import { GamePlaySection } from "@/components/report/userDetails/game-play-section";
+
+const UserDataPage = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  return (
+    <div className="min-h-screen">
+      <div className="mx-2 p-6">
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold mb-2">User Details</h2>
+          <Input
+            type="text"
+            placeholder="Search by client"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="max-w-xs border"
+          />
+        </div>
+        <div className="space-y-6">
+          <div className="flex flex-col-2 gap-20">
+            <UserDetailsSection userDetails={mockData.userDetails} />
+            <SettingsSection />
+          </div>
+          <AccountDetailsSection accountDetails={mockData.accountDetails} />
+          <GamePlaySection gamePlays={mockData.gamePlays} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UserDataPage;
