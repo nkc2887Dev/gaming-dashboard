@@ -1,18 +1,21 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { LucideMegaphone, } from "lucide-react"
+import { motion } from "framer-motion";
+import { LucideMegaphone } from "lucide-react";
 
 interface ScrollingFooterProps {
-  messages: string[]
-  speed?: number
+  messages: string[];
+  speed?: number;
 }
 
-export default function ScrollingFooter({ messages, speed = 25 }: ScrollingFooterProps) {
+export default function ScrollingFooter({
+  messages,
+  speed = 30,
+}: ScrollingFooterProps) {
   const repeatedMessages = [...messages, ...messages];
 
   return (
-    <footer className="bg-gradient-to-b from-[#16A3BB] to-[#03364c] overflow-hidden py-1 fixed bottom-0 w-full">
+    <div className="bg-gradient-to-b from-[#16A3BB] to-[#03364c] w-full">
       <div className="relative flex items-center w-full overflow-hidden">
         <motion.div
           initial={{ x: "100%" }}
@@ -25,7 +28,7 @@ export default function ScrollingFooter({ messages, speed = 25 }: ScrollingFoote
           className="whitespace-nowrap text-white flex items-center gap-8"
         >
           {repeatedMessages.map((message, idx) => (
-            <span key={idx} className="inline-flex items-center gap-1">
+            <span key={idx} className="inline-flex items-center gap-1 text-sm">
               <LucideMegaphone />
               {message}
               <span></span>
@@ -33,6 +36,6 @@ export default function ScrollingFooter({ messages, speed = 25 }: ScrollingFoote
           ))}
         </motion.div>
       </div>
-    </footer>
-  )
+    </div>
+  );
 }

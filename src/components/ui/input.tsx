@@ -6,7 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({ label, className, ...props }) => {
   return (
-    <div className="space-y-2">
+    <div className="flex flex-col items-center justify-center space-y-2">
       {label && <label className="text-white text-sm">{label}</label>}
       <input
         {...props}

@@ -1,5 +1,5 @@
 import React from "react"
-import CommonError from "../PageNotFound/CommonError"
+import CommonError from "@/components/PageNotFound/CommonError"
 
 const Error404 = () => {
   return (

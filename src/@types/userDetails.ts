@@ -1,3 +1,5 @@
+import { BettingLimits } from "./betting"
+
 export interface UserDetails {
     userName: string
     role: string
@@ -37,4 +39,5 @@ export interface UserData {
     userDetails: UserDetails
     accountDetails: AccountDetails
     gamePlays: GamePlay[]
+    minMaxData: BettingLimits
 }

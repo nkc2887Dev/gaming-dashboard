@@ -3,11 +3,13 @@ import { useRouter } from "next/router";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import ScrollingFooter from "@/components/scrolling-footer";
+import FindSettlement from "@/components/settlement/search";
 // import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const showNavbar = !["/"].includes(router.pathname);
+  const showFindSettlement = ["/settlement/user", "/settlement/master"].includes(router.pathname);
 
   // useEffect(() => {
   //   const disableRightClick = (event: MouseEvent) => event.preventDefault();
@@ -40,13 +42,18 @@ export default function App({ Component, pageProps }: AppProps) {
   const messages = [
     "1️⃣ Welcome To Our Exchange...",
     "2️⃣ ICC Champions Trophy Cup TOURNAMENT WINNER Bet Started in Our Exchange....💫💫💫",
-  ]
+  ];
   // 📢
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       {showNavbar && <Navbar />}
+      <main className="main-content">
         <Component {...pageProps} />
-        <ScrollingFooter messages={messages} />
+      </main>
+      <footer className="overflow-hidden fixed bottom-0 w-full">
+        {showFindSettlement && <FindSettlement />}
+        {showNavbar && <ScrollingFooter messages={messages} />}
+      </footer>
     </div>
   );
 }

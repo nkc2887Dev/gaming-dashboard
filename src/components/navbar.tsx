@@ -59,11 +59,7 @@ export default function Navbar() {
             className="text-white bg-transparent"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" /> }
           </Button>
           {/* </div>
         <div className="flex gap-4"> */}
@@ -91,14 +87,14 @@ export default function Navbar() {
                 href="/settlement/user"
                 className="block p-2 hover:bg-[#017082] text-sm"
               >
-                User Settlement
+                User
               </Link>
               <div className="border-b border-[#159ab3] w-full"></div>
               <Link
                 href="/settlement/master"
                 className="block p-2 hover:bg-[#017082] text-sm"
               >
-                Master Settlement
+                Master
               </Link>
             </div>
             {/* )} */}
@@ -210,14 +206,7 @@ export default function Navbar() {
                 href="/control/user"
                 className="block p-2 hover:bg-[#017082] text-sm"
               >
-                User Control
-              </Link>
-              <div className="border-b border-[#159ab3] w-full"></div>
-              <Link
-                href="/control/master"
-                className="block p-2 hover:bg-[#017082] text-sm"
-              >
-                Master Control
+                Game
               </Link>
             </div>
             {/* )} */}

@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import type { UserDetails } from "@/utils/@types";
+import type { UserDetails } from "@/@types/userDetails";
 
 interface UserDetailsSectionProps {
   userDetails: UserDetails;

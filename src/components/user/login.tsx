@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { RefreshCw, Eye, EyeOff } from "lucide-react"
 import Image from "next/image";
 import Link from "next/link"
+import { GradientButton } from "@/components/ui/gradient-button"
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
@@ -97,12 +98,13 @@ export default function LoginForm() {
   
           {/* Login Button */}
           <div className="space-y-1">
-          <Button
+            <GradientButton label="LOGIN" redirect="/dashboard" />
+          {/* <Button
             type="submit"
             className="w-full bg-gradient-to-b from-[#00a3cc] to-[#008fb3] hover:from-[#008fb3] hover:to-[#007a99] text-white font-medium py-2 rounded-md shadow-md"
           >
             <Link href="/dashboard">LOGIN</Link>
-          </Button>
+          </Button> */}
           </div>
         </form>
       </div>

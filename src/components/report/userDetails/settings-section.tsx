@@ -1,7 +1,11 @@
+import MasterPasswordModal from "@/components/common/MasterPassword";
+import Model from "@/components/common/MasterPassword";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { ElipsButton } from "@/components/ui/gradient-button";
 import { Label } from "@/components/ui/label";
+import { useState } from "react";
 
 const ButtonData = [
   {
@@ -38,43 +42,70 @@ const ButtonData = [
   },
 ];
 
-const ElipsButton = ({ label }: { label: string }) => {
-  return (
-    <Button
-      className="rounded-full text-xs font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]"
-    >
-      {label}
-    </Button>
-  );
-};
+export function SettingsSection({ setCheckLimitOpen }:{setCheckLimitOpen?:(open: boolean) => void}) {
+  const [openUserModal, setOpenUserModal] = useState(false);
+  const [isUserChecked, setIsUserChecked] = useState(false);
+  const [openBetModal, setOpenBetModal] = useState(false);
+  const [isBetChecked, setIsBetChecked] = useState(false);
 
-export function SettingsSection() {
+  const handleUserCheckedChange = (checked: boolean) => {
+    setIsUserChecked(checked);
+    setOpenUserModal(true);
+  };
+  
+  const handleBetCheckedChange = (checked: boolean) => {
+    setIsBetChecked(checked);
+    setOpenBetModal(true);
+  };
+  
   return (
-    <Card className="mb-4 relative bg-[#F7F7F8]">
-      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
-        Settings:
-      </div>
-      <CardContent>
-        <div className="pt-7 grid grid-cols-4 gap-2 mb-4">
-          {ButtonData.map((button) => {
-            return <ElipsButton key={button.id} label={button.label} />;
-          })}
+    <>
+      <Card className="mb-4 relative bg-[#F7F7F8]">
+        <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
+          Settings:
         </div>
-        <div className="flex gap-8 ml-2">
-          <div className="flex items-center space-x-2">
-            <Checkbox id="userLock" />
-            <Label htmlFor="userLock" className="text-sm">User Lock</Label>
+        <CardContent>
+          <div className="pt-7 grid grid-cols-4 gap-2 mb-4">
+            {ButtonData.map((button) => {
+              return <ElipsButton key={button.id} label={button.label} />;
+            })}
           </div>
-          <div className="flex items-center space-x-2">
-            <Checkbox id="betLock" />
-            <Label htmlFor="betLock" className="text-sm">Bet Lock</Label>
+          <div className="flex gap-8 ml-2">
+            <div className="flex items-center space-x-2">
+              <Checkbox id="userLock" onCheckedChange={handleUserCheckedChange} />
+              <Label htmlFor="userLock" className="text-sm">
+                User Lock
+              </Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="betLock" onCheckedChange={handleBetCheckedChange} />
+              <Label htmlFor="betLock" className="text-sm">
+                Bet Lock
+              </Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox id="checkLimit" onCheckedChange={(checked)=>setCheckLimitOpen?.(!!checked)} />
+              <Label htmlFor="checkLimit" className="text-sm">
+                Check Limit
+              </Label>
+            </div>
           </div>
-          <div className="flex items-center space-x-2">
-            <Checkbox id="checkLimit" />
-            <Label htmlFor="checkLimit" className="text-sm">Check Limit</Label>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+      {openUserModal && (
+        <MasterPasswordModal
+          isOpen={openUserModal}
+          onClose={() => setOpenUserModal(false)}
+          title={isUserChecked ? "Lock User" : "Unlock User"}
+        />
+      )}
+      {openBetModal && (
+        <MasterPasswordModal
+          isOpen={openBetModal}
+          onClose={() => setOpenBetModal(false)}
+          title={isBetChecked ? "Lock Bet" : "Unlock Bet"}
+        />
+      )}
+    </>
   );
 }

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import Input from "@/components/ui/input";
 import { ChevronDown } from "lucide-react";
+import { GradientButton } from "./ui/gradient-button";
 
 interface MetricBox {
   title: string;
@@ -96,12 +97,7 @@ export default function Dashboard() {
             className="w-48 border rounded-lg"
           />
         </div>
-        <Button
-          className="bg-[#008fb3] hover:bg-[#006666] w-lg rounded-l-lg"
-          size="lg"
-        >
-          Submit
-        </Button>
+        <GradientButton className="w-lg rounded-l-lg" label="Submit" size="lg" />
         <Button variant="destructive" className="w-lg rounded-r-lg" size="lg">
           Reset
         </Button>
