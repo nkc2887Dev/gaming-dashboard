@@ -3,7 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+html, body {
   font-family: 'Roboto', sans-serif;
   background-color: #F0F0F5;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents unwanted scrolling on the whole page */
 }

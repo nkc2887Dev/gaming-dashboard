@@ -9,6 +9,7 @@ import ChangePasswordModal from "@/components/common/model/changePassword";
 import MasterPasswordModal from "@/components/common/model/masterPassword";
 import LastLoginModal from "@/components/common/model/lastLogin";
 
+const username = "testsuperadmin123";
 interface GradientButton {
   label: string;
   redirect?: string;
@@ -31,55 +32,32 @@ const GradientButton = ({
   );
 };
 
+const MODAL_COMPONENTS: Record<string, React.FC<{ isOpen: boolean; onClose: () => void; title: string }>> = {
+  [SETTINGS_BUTTON.USER_UPDATE]: UserUpdateModal,
+  [SETTINGS_BUTTON.DEPOSIT_CREDIT]: CreditDepositModal,
+  [SETTINGS_BUTTON.WITHDRAWAL]: WithdrawalModal,
+  [SETTINGS_BUTTON.CHANGE_PASSWORD]: ChangePasswordModal,
+  [SETTINGS_BUTTON.GAME_CONTROL]: MasterPasswordModal,
+  [SETTINGS_BUTTON.LAST_LOGIN]: LastLoginModal,
+};
+
 const ElipsButton = ({ label }: { label: string }) => {
   const [openModal, setOpenModal] = useState<string | null>(null);
-
+  const ModalComponent = openModal ? MODAL_COMPONENTS[openModal] : null;
+  const modalTitle =
+    openModal === SETTINGS_BUTTON.GAME_CONTROL
+      ? `Lock Application - ${username}`
+      : openModal === SETTINGS_BUTTON.LAST_LOGIN
+      ? `Last Logins of ${username}`
+      : label;
+      
   return (
     <>
       <Button onClick={() => setOpenModal(label)}  className="px-3 rounded-full text-xs font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]">
         {label}
       </Button>
-      {openModal === SETTINGS_BUTTON.USER_UPDATE && (
-        <UserUpdateModal
-          isOpen={true}
-          onClose={() => setOpenModal(null)}
-          title="Edit Client Account"
-        />
-      )}
-      {openModal === SETTINGS_BUTTON.DEPOSIT_CREDIT && (
-        <CreditDepositModal
-          isOpen={true}
-          onClose={() => setOpenModal(null)}
-          title="Credit / Deposit"
-        />
-      )}
-      {openModal === SETTINGS_BUTTON.WITHDRAWAL && (
-        <WithdrawalModal
-          isOpen={true}
-          onClose={() => setOpenModal(null)}
-          title="Withdraw"
-        />
-      )}
-      {openModal === SETTINGS_BUTTON.CHANGE_PASSWORD && (
-        <ChangePasswordModal
-          isOpen={true}
-          onClose={() => setOpenModal(null)}
-          title="Change Password"
-        />
-      )}
-      {openModal === SETTINGS_BUTTON.GAME_CONTROL && (
-        <MasterPasswordModal
-          isOpen={true}
-          onClose={() => setOpenModal(null)}
-          title="Lock Application - testsuperadmin123"
-        />
-      )}
-      {openModal === SETTINGS_BUTTON.LAST_LOGIN && (
-        <LastLoginModal
-          isOpen={true}
-          onClose={() => setOpenModal(null)}
-          title="Last Logins of testsuperadmin123"
-        />
+      {ModalComponent && (
+        <ModalComponent isOpen={true} onClose={() => setOpenModal(null)} title={modalTitle} />
       )}
     </>
   );

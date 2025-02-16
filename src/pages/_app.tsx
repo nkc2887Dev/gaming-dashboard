@@ -46,11 +46,11 @@ export default function App({ Component, pageProps }: AppProps) {
   // 📢
   return (
     <div className="flex flex-col h-screen">
-      {showNavbar && <Navbar />}
-      <main className="main-content">
+      {showNavbar && <Navbar className={"fixed top-0 left-0 w-full z-50"} />}
+      <main className="overflow-y-auto">
         <Component {...pageProps} />
       </main>
-      <footer className="overflow-hidden fixed bottom-0 w-full">
+      <footer className="fixed bottom-0 left-0 w-full z-50 bg-white">
         {showFindSettlement && <FindSettlement />}
         {showNavbar && <ScrollingFooter messages={messages} />}
       </footer>

@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { GradientButton } from "@/components/ui/gradient-button";
+import Popup from "./ui/popup";
 
 interface MetricBox {
   title: string;
@@ -68,6 +69,7 @@ export default function Dashboard() {
 
   return (
     <div className="p-4">
+      <Popup />
       <h2 className="font-bold p-2">Dashboard</h2>
       {/* Date Range Selector */}
       <div

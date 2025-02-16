@@ -22,7 +22,7 @@ const NAVBAR_MENU = {
   PROFILE: "profile",
 };
 
-export default function Navbar() {
+export default function Navbar({className}:{className:string}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -51,7 +51,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full bg-gradient-to-b from-[#03364c] to-[#159ab3] text-white p-2 flex items-center justify-between relative">
+      <nav className={`${className} w-full bg-gradient-to-b from-[#03364c] to-[#159ab3] text-white p-2 flex items-center justify-between relative`}>
         <div className="flex items-center gap-4">
           <Button
             variant="ghost"
