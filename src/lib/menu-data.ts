@@ -25,7 +25,7 @@ export interface SubMatch {
   export const sportsData: SportCategory[] = [
     {
       id: "cricket",
-      name: "Cricket",
+      name: "🏏 Cricket",
       expanded: true,
       tournaments: [
         {
@@ -65,22 +65,22 @@ export interface SubMatch {
     },
     {
       id: "soccer",
-      name: "Soccer",
+      name: "⚽ Soccer",
       tournaments: [],
     },
     {
       id: "tennis",
-      name: "Tennis",
+      name: "🎾 Tennis",
       tournaments: [],
     },
     {
       id: "horse",
-      name: "Horse",
+      name: "🐎 Horse",
       tournaments: [],
     },
     {
       id: "greyhound",
-      name: "Greyhound",
+      name: "🐕 Greyhound",
       tournaments: [],
     },
   ]

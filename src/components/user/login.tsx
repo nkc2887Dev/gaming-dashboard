@@ -7,6 +7,7 @@ import { RefreshCw, Eye, EyeOff } from "lucide-react"
 import Image from "next/image";
 import Link from "next/link"
 import { GradientButton } from "@/components/ui/gradient-button"
+import logo from "@/assets/image/logo.jpg";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("")
@@ -39,10 +40,10 @@ export default function LoginForm() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="w-full max-w-xs bg-black rounded-md p-6 shadow-xl border-4 border-gray-700">
+      <div className="w-full max-w-xs bg-black rounded-md p-8 shadow-xl border-4 border-gray-700">
         {/* Logo */}
         <div className="flex justify-center mb-4 text-white">
-          <Image src="/logo.png" alt="GAJANAND" width={100} height={40} priority />
+           <Image src={logo} alt="GAJANAND" width={100} height={40} priority className="rounded-md" />
         </div>
   
         <form onSubmit={handleSubmit} className="space-y-4">
