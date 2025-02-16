@@ -25,7 +25,7 @@ export function AccountDetailsSection({
 }: AccountDetailsSectionProps) {
   return (
     <Card className="mb-4 relative bg-[#F7F7F8]">
-      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
+      <div className="absolute -top-3 left-4 px-2 text-lg font-bold">
         Account Details:
       </div>
       <CardContent className="pt-7 grid grid-cols-4 gap-4">

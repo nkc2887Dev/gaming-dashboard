@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { GamePlayTable } from "@/components/game-play-table";
-import type { GamePlay } from "@/utils/@types";
+import type { GamePlay } from "@/@types/userDetails";
 
 interface GamePlaySectionProps {
   gamePlays: GamePlay[];
@@ -10,7 +10,7 @@ export function GamePlaySection({ gamePlays }: GamePlaySectionProps) {
   return (
     <Card className="mb-4 relative">
       {/* Section Title */}
-      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
+      <div className="absolute -top-3 left-4 px-2 text-lg font-bold">
         Game Play:
       </div>
 

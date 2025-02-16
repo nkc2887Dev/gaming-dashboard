@@ -41,7 +41,7 @@ export function UserDetailsSection({ userDetails }: UserDetailsSectionProps) {
 
   return (
     <Card className="mb-4 relative bg-[#F7F7F8]">
-      <div className="absolute -top-3 left-4 bg-white px-2 text-lg font-bold">
+      <div className="absolute -top-3 left-4 px-2 text-lg font-bold">
         User Details:
       </div>
       <CardContent className="pt-10 grid grid-cols-3 gap-4">

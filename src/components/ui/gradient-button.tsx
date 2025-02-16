@@ -26,7 +26,7 @@ const GradientButton = ({
 
 const ElipsButton = ({ label }: { label: string }) => {
   return (
-    <Button className="rounded-full text-xs font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]">
+    <Button className="px-3 rounded-full text-xs font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]">
       {label}
     </Button>
   );
