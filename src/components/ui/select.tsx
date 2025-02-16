@@ -7,13 +7,14 @@ interface SelectProps<T> {
   value: T;
   onChange: (value: T) => void;
   children: React.ReactNode;
+  className?: string
 }
 
-export function Select<T>({ children, value, onChange }: SelectProps<T>) {
+export function Select<T>({ children, value, onChange, className }: SelectProps<T>) {
   return (
-    <Listbox value={value} onChange={onChange}>
-      <div className="relative left-0 w-1/2">{children}</div>
-    </Listbox>
+      <Listbox value={value} onChange={onChange}>
+        <div className={`${className} relative left-0 w-1/2`}>{children}</div>
+      </Listbox>
   );
 }
 
