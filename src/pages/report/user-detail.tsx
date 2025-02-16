@@ -10,6 +10,13 @@ import { MinMaxBetsTable } from "@/components/report/userDetails/min-max-bets";
 const UserDataPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [checkLimitOpen, setCheckLimitOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setShowDetails(true);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -22,19 +29,22 @@ const UserDataPage = () => {
               placeholder="Search by client"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleKeyDown}
               className="max-w-xs border"
             />
           </div>
         </div>
-        <div className="space-y-6">
-          <div className="flex flex-col-1 gap-20">
-            <UserDetailsSection userDetails={mockData.userDetails} />
-            <SettingsSection setCheckLimitOpen={setCheckLimitOpen} />
+        {showDetails && (
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
+              <UserDetailsSection userDetails={mockData.userDetails} />
+              <SettingsSection setCheckLimitOpen={setCheckLimitOpen} />
+            </div>
+            {checkLimitOpen && <MinMaxBetsTable data={mockData.minMaxData} />}
+            <AccountDetailsSection accountDetails={mockData.accountDetails} />
+            <GamePlaySection gamePlays={mockData.gamePlays} />
           </div>
-          {checkLimitOpen && <MinMaxBetsTable data={mockData.minMaxData} />}
-          <AccountDetailsSection accountDetails={mockData.accountDetails} />
-          <GamePlaySection gamePlays={mockData.gamePlays} />
-        </div>
+        )}
       </div>
     </div>
   );

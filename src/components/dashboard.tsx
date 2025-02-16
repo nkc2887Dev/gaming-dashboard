@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -9,9 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Input from "@/components/ui/input";
-import { ChevronDown } from "lucide-react";
-import { GradientButton } from "./ui/gradient-button";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 interface MetricBox {
   title: string;
@@ -61,14 +62,8 @@ const casinoDetails: CasinoDetail[] = [
 ];
 
 export default function Dashboard() {
-  const [fromDate, setFromDate] = useState(
-    new Date().toLocaleDateString("en-CA")
-  );
-  const [toDate, setToDate] = useState(
-    new Date(new Date().setMonth(new Date().getMonth() + 1)).toLocaleDateString(
-      "en-CA"
-    )
-  );
+  const [fromDate, setFromDate] = useState<Date | null>(new Date());
+  const [toDate, setToDate] = useState<Date | null>(new Date());
   const [selectedSport, setSelectedSport] = useState("cricket");
 
   return (
@@ -81,23 +76,33 @@ export default function Dashboard() {
       >
         <div>
           <label className="block text-sm mb-1">From Date:</label>
-          <Input
-            type="date"
-            value={fromDate}
-            onChange={(e) => setFromDate(e.target.value)}
-            className="w-48 border"
+          <DatePicker
+            selected={fromDate}
+            onChange={(date: Date | null) => setFromDate(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={5}
+            dateFormat="dd/MM/yyyy HH:mm"
+            className="border border-gray-400 px-3 py-2 rounded-md text-center w-[180px]"
           />
         </div>
         <div>
           <label className="block text-sm mb-1">To Date:</label>
-          <Input
-            type="date"
-            value={toDate}
-            onChange={(e) => setToDate(e.target.value)}
-            className="w-48 border rounded-lg"
+          <DatePicker
+            selected={toDate}
+            onChange={(date: Date | null) => setToDate(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={5}
+            dateFormat="dd/MM/yyyy HH:mm"
+            className="border border-gray-400 px-3 py-2 rounded-md text-center w-[180px]"
           />
         </div>
-        <GradientButton className="w-lg rounded-l-lg" label="Submit" size="lg" />
+        <GradientButton
+          className="w-lg rounded-l-lg"
+          label="Submit"
+          size="lg"
+        />
         <Button variant="destructive" className="w-lg rounded-r-lg" size="lg">
           Reset
         </Button>

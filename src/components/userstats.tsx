@@ -1,5 +1,5 @@
 import React from "react";
-import ToolTip from "./ui/tooltip";
+import ToolTip from "@/components/ui/tooltip";
 
 interface UserData {
   id: string;

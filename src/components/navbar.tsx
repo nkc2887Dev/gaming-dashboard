@@ -10,9 +10,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import SportsMenu from "./sportsMenu";
+import SportsMenu from "@/components/sportsMenu";
 import { useEffect, useState } from "react";
-import UserStats from "./userstats";
+import UserStats from "@/components/userstats";
 import { useRouter } from "next/router";
 
 const NAVBAR_MENU = {

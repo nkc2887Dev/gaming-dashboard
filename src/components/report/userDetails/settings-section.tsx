@@ -1,6 +1,4 @@
-import MasterPasswordModal from "@/components/common/MasterPassword";
-import Model from "@/components/common/MasterPassword";
-import { Button } from "@/components/ui/button";
+import MasterPasswordModal from "@/components/common/model/masterPassword";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ElipsButton } from "@/components/ui/gradient-button";
@@ -65,7 +63,7 @@ export function SettingsSection({ setCheckLimitOpen }:{setCheckLimitOpen?:(open:
           Settings:
         </div>
         <CardContent>
-          <div className="pt-7 grid grid-cols-4 gap-2 mb-4">
+          <div className="pt-7 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-2 mb-4 justify-start">
             {ButtonData.map((button) => {
               return <ElipsButton key={button.id} label={button.label} />;
             })}

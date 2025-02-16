@@ -1,4 +1,4 @@
-import { BettingLimits } from "./betting"
+import { BettingLimits } from "@/@types/betting"
 
 export interface UserDetails {
     userName: string
