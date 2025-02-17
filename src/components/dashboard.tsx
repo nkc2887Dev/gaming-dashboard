@@ -101,14 +101,10 @@ export default function Dashboard() {
           />
         </div>
         <div className="flex gap-2 mt-6">
-        <GradientButton
-          className="rounded-l-lg"
-          label="Submit"
-          size="lg"
-        />
-        <Button variant="destructive" className="w-lg rounded-r-lg" size="lg">
-          Reset
-        </Button>
+          <GradientButton className="rounded-l-lg" label="Submit" size="lg" />
+          <Button variant="destructive" className="w-lg rounded-r-lg" size="lg">
+            Reset
+          </Button>
         </div>
       </div>
 

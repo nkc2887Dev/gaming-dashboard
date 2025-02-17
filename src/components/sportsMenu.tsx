@@ -37,16 +37,15 @@ const DROPDOWN_MENUS = {
   ],
   control: [{ name: "Game", path: "/control/game" }],
 };
-export default function SportsMenu({
-  isMobile,
-  setIsMenuOpen,
-  isMenuOpen,
-}: {
+
+interface ISportsMenu {
   isMobile: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
   isMenuOpen: boolean;
-}) {
-  const [expandedSports, setExpandedSports] = useState<string[]>(["cricket"]);
+}
+
+export default function SportsMenu({ isMobile, setIsMenuOpen }: ISportsMenu) {
+  const [expandedSports, setExpandedSports] = useState<string[]>([]);
   const [expandedTournaments, setExpandedTournaments] = useState<string[]>([]);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const router = useRouter();
@@ -55,7 +54,7 @@ export default function SportsMenu({
     setExpandedSports((prev) =>
       prev.includes(sportId)
         ? prev.filter((id) => id !== sportId)
-        : [...prev, sportId]
+        : [...prev, sportId],
     );
   };
 
@@ -63,7 +62,7 @@ export default function SportsMenu({
     setExpandedTournaments((prev) =>
       prev.includes(tournamentId)
         ? prev.filter((id) => id !== tournamentId)
-        : [...prev, tournamentId]
+        : [...prev, tournamentId],
     );
   };
 

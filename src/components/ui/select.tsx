@@ -7,23 +7,33 @@ interface SelectProps<T> {
   value: T;
   onChange: (value: T) => void;
   children: React.ReactNode;
-  className?: string
+  className?: string;
 }
 
-export function Select<T>({ children, value, onChange, className }: SelectProps<T>) {
+export function Select<T>({
+  children,
+  value,
+  onChange,
+  className,
+}: SelectProps<T>) {
   return (
-      <Listbox value={value} onChange={onChange}>
-        <div className={`${className} relative left-0 w-1/2`}>{children}</div>
-      </Listbox>
+    <Listbox value={value} onChange={onChange}>
+      <div className={`${className} relative left-0 w-1/2`}>{children}</div>
+    </Listbox>
   );
 }
 
-interface SelectTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface SelectTriggerProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
 }
 
-export function SelectTrigger({ children, className = "", ...props }: SelectTriggerProps) {
+export function SelectTrigger({
+  children,
+  className = "",
+  ...props
+}: SelectTriggerProps) {
   return (
     <Listbox.Button
       className={`w-full p-2 border border-gray-300 rounded bg-white ${className}`}
@@ -39,9 +49,14 @@ interface SelectContentProps {
   className?: string;
 }
 
-export function SelectContent({ children, className = "" }: SelectContentProps) {
+export function SelectContent({
+  children,
+  className = "",
+}: SelectContentProps) {
   return (
-    <Listbox.Options className={`absolute mt-1 w-full bg-white shadow-lg rounded z-10 ${className}`}>
+    <Listbox.Options
+      className={`absolute mt-1 w-full bg-white shadow-lg rounded z-10 ${className}`}
+    >
       {children}
     </Listbox.Options>
   );
@@ -53,7 +68,11 @@ interface SelectItemProps<T> {
   className?: string;
 }
 
-export function SelectItem<T>({ value, children, className = "" }: SelectItemProps<T>) {
+export function SelectItem<T>({
+  value,
+  children,
+  className = "",
+}: SelectItemProps<T>) {
   return (
     <Listbox.Option
       value={value}

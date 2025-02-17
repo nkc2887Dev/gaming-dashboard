@@ -31,7 +31,13 @@ export default function Popup() {
         >
           <X className="w-6 h-6 text-white" />
         </button>
-        <Image src={blackPanther} alt="Promo" width={1000} height={200} className="rounded-md" />
+        <Image
+          src={blackPanther}
+          alt="Promo"
+          width={1000}
+          height={200}
+          className="rounded-md"
+        />
       </div>
     </div>
   );

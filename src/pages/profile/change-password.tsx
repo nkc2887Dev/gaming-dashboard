@@ -1,8 +1,8 @@
-import ChangePassword from "@/components/user/ChangePassword"
-import React from "react"
+import ChangePassword from "@/components/user/ChangePassword";
+import React from "react";
 
 const ChangePasswordPage = () => {
-  return <ChangePassword />
-}
+  return <ChangePassword />;
+};
 
-export default ChangePasswordPage
+export default ChangePasswordPage;

@@ -1,4 +1,12 @@
-const ToolTip = ({ text, value, className }: { text: string, value: string | number, className: string | undefined }) => {
+const ToolTip = ({
+  text,
+  value,
+  className,
+}: {
+  text: string;
+  value: string | number;
+  className: string | undefined;
+}) => {
   return (
     <>
       <span className={`${className} cursor-pointer`}> {value}</span>

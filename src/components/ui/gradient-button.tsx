@@ -26,13 +26,20 @@ const GradientButton = ({
   onclick,
 }: GradientButton) => {
   return (
-    <Button onClick={onclick} {...(size ? { size } : {})} className={`${className} rounded-md font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#1497AF] to-[#022D44] text-white shadow-md hover:bg-[#017082]`}>
+    <Button
+      onClick={onclick}
+      {...(size ? { size } : {})}
+      className={`${className} rounded-md font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#1497AF] to-[#022D44] text-white shadow-md hover:bg-[#017082]`}
+    >
       {redirect ? <Link href={redirect}>{label}</Link> : label}
     </Button>
   );
 };
 
-const MODAL_COMPONENTS: Record<string, React.FC<{ isOpen: boolean; onClose: () => void; title: string }>> = {
+const MODAL_COMPONENTS: Record<
+  string,
+  React.FC<{ isOpen: boolean; onClose: () => void; title: string }>
+> = {
   [SETTINGS_BUTTON.USER_UPDATE]: UserUpdateModal,
   [SETTINGS_BUTTON.DEPOSIT_CREDIT]: CreditDepositModal,
   [SETTINGS_BUTTON.WITHDRAWAL]: WithdrawalModal,
@@ -48,16 +55,23 @@ const ElipsButton = ({ label }: { label: string }) => {
     openModal === SETTINGS_BUTTON.GAME_CONTROL
       ? `Lock Application - ${username}`
       : openModal === SETTINGS_BUTTON.LAST_LOGIN
-      ? `Last Logins of ${username}`
-      : label;
-      
+        ? `Last Logins of ${username}`
+        : label;
+
   return (
     <>
-      <Button onClick={() => setOpenModal(label)}  className="px-3 rounded-full text-xs font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]">
+      <Button
+        onClick={() => setOpenModal(label)}
+        className="px-3 rounded-full text-xs font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md transition-all duration-300 group hover:from-[#159ab3] hover:to-[#03364c]"
+      >
         {label}
       </Button>
       {ModalComponent && (
-        <ModalComponent isOpen={true} onClose={() => setOpenModal(null)} title={modalTitle} />
+        <ModalComponent
+          isOpen={true}
+          onClose={() => setOpenModal(null)}
+          title={modalTitle}
+        />
       )}
     </>
   );

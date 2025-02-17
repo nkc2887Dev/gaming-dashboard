@@ -1,4 +1,4 @@
-import type { UserData } from "@/@types/userDetails"
+import type { UserData } from "@/@types/userDetails";
 
 export const mockData: UserData = {
   userDetails: {
@@ -90,6 +90,5 @@ export const mockData: UserData = {
         lottery: "1000",
       },
     },
-  }
-}
-
+  },
+};

@@ -40,7 +40,11 @@ const ButtonData = [
   },
 ];
 
-export function SettingsSection({ setCheckLimitOpen }:{setCheckLimitOpen?:(open: boolean) => void}) {
+export function SettingsSection({
+  setCheckLimitOpen,
+}: {
+  setCheckLimitOpen?: (open: boolean) => void;
+}) {
   const [openUserModal, setOpenUserModal] = useState(false);
   const [isUserChecked, setIsUserChecked] = useState(false);
   const [openBetModal, setOpenBetModal] = useState(false);
@@ -50,12 +54,12 @@ export function SettingsSection({ setCheckLimitOpen }:{setCheckLimitOpen?:(open:
     setIsUserChecked(checked);
     setOpenUserModal(true);
   };
-  
+
   const handleBetCheckedChange = (checked: boolean) => {
     setIsBetChecked(checked);
     setOpenBetModal(true);
   };
-  
+
   return (
     <>
       <Card className="mb-4 relative bg-[#F7F7F8]">
@@ -70,7 +74,10 @@ export function SettingsSection({ setCheckLimitOpen }:{setCheckLimitOpen?:(open:
           </div>
           <div className="flex gap-8 ml-2">
             <div className="flex items-center space-x-2">
-              <Checkbox id="userLock" onCheckedChange={handleUserCheckedChange} />
+              <Checkbox
+                id="userLock"
+                onCheckedChange={handleUserCheckedChange}
+              />
               <Label htmlFor="userLock" className="text-sm">
                 User Lock
               </Label>
@@ -82,7 +89,10 @@ export function SettingsSection({ setCheckLimitOpen }:{setCheckLimitOpen?:(open:
               </Label>
             </div>
             <div className="flex items-center space-x-2">
-              <Checkbox id="checkLimit" onCheckedChange={(checked)=>setCheckLimitOpen?.(!!checked)} />
+              <Checkbox
+                id="checkLimit"
+                onCheckedChange={(checked) => setCheckLimitOpen?.(!!checked)}
+              />
               <Label htmlFor="checkLimit" className="text-sm">
                 Check Limit
               </Label>

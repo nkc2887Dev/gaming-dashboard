@@ -32,7 +32,9 @@ export function AccountDetailsSection({
         {accountFields.map(({ key, label }) => (
           <div key={key} className="flex gap-2">
             <Label className="text-[#73819A]">{label}</Label>
-            <span className="font-semibold">{accountDetails[key as keyof AccountDetails] || "-"}</span>
+            <span className="font-semibold">
+              {accountDetails[key as keyof AccountDetails] || "-"}
+            </span>
           </div>
         ))}
       </CardContent>

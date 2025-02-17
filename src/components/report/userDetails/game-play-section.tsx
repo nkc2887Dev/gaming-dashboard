@@ -19,7 +19,9 @@ export function GamePlaySection({ gamePlays }: GamePlaySectionProps) {
         <div className="border rounded-lg p-2 bg-white">
           <div className="flex justify-between border rounded-md overflow-hidden text-center text-[#73819A] text-sm bg-gray-100">
             <span className="flex-1 py-2 border-r font-semibold">P&L</span>
-            <span className="flex-1 py-2 border-r font-semibold">Commission</span>
+            <span className="flex-1 py-2 border-r font-semibold">
+              Commission
+            </span>
             <span className="flex-1 py-2 font-semibold">Total Bet</span>
           </div>
         </div>
@@ -29,7 +31,12 @@ export function GamePlaySection({ gamePlays }: GamePlaySectionProps) {
           {/* First Table - Sports Betting */}
           <GamePlayTable
             headers={["Sport", "Bet", "Bet Amount", "P & L"]}
-            data={gamePlays.map((game) => [game.sport, game.bet, game.betAmount, game.pl])}
+            data={gamePlays.map((game) => [
+              game.sport,
+              game.bet,
+              game.betAmount,
+              game.pl,
+            ])}
           />
 
           {/* Second Table - Casino P&L */}

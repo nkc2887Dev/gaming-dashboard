@@ -4,9 +4,9 @@ import Input from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 
 interface MasterModalProps {
-    title: string
-    isOpen: boolean
-    onClose: () => void
+  title: string;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 const MasterPasswordModal = ({ isOpen, onClose, title }: MasterModalProps) => {
@@ -45,7 +45,11 @@ const MasterPasswordModal = ({ isOpen, onClose, title }: MasterModalProps) => {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-[#73819A]"
               >
-                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                {showPassword ? (
+                  <EyeOff className="h-4 w-4" />
+                ) : (
+                  <Eye className="h-4 w-4" />
+                )}
               </button>
             </div>
           </div>

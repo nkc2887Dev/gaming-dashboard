@@ -1,50 +1,57 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Input from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { RefreshCw, Eye, EyeOff } from "lucide-react"
+import { useState } from "react";
+import Input from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { RefreshCw, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
-import { GradientButton } from "@/components/ui/gradient-button"
+import { GradientButton } from "@/components/ui/gradient-button";
 import logo from "@/assets/image/logo.jpg";
 
 export default function LoginForm() {
-  const [username, setUsername] = useState("")
-  const [password, setPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
-  const [captchaAnswer, setCaptchaAnswer] = useState("")
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
   const [captcha, setCaptcha] = useState({
     num1: 10,
     num2: 2,
-  })
+  });
 
   const refreshCaptcha = () => {
     setCaptcha({
       num1: Math.floor(Math.random() * 100) + 1,
       num2: Math.floor(Math.random() * 10) + 1,
-    })
-    setCaptchaAnswer("")
-  }
+    });
+    setCaptchaAnswer("");
+  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const correctAnswer = captcha.num1 + captcha.num2
+    e.preventDefault();
+    const correctAnswer = captcha.num1 + captcha.num2;
     if (Number.parseInt(captchaAnswer) === correctAnswer) {
-      console.log("Login successful")
+      console.log("Login successful");
     } else {
-      alert("Incorrect CAPTCHA answer")
-      refreshCaptcha()
+      alert("Incorrect CAPTCHA answer");
+      refreshCaptcha();
     }
-  }
+  };
 
   return (
     <div className="flex items-center justify-center">
       <div className="w-full max-w-xs bg-black rounded-md p-8 shadow-xl border-4 border-gray-700">
         {/* Logo */}
         <div className="flex justify-center mb-4 text-white">
-           <Image src={logo} alt="GAJANAND" width={100} height={40} priority className="rounded-md" />
+          <Image
+            src={logo}
+            alt="GAJANAND"
+            width={100}
+            height={40}
+            priority
+            className="rounded-md"
+          />
         </div>
-  
+
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Username */}
           <div className="space-y-1">
@@ -57,7 +64,7 @@ export default function LoginForm() {
               required
             />
           </div>
-  
+
           {/* Password */}
           <div className="space-y-1">
             <label className="text-white text-sm">Password:</label>
@@ -74,16 +81,22 @@ export default function LoginForm() {
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-[#73819A]"
               >
-                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                {showPassword ? (
+                  <EyeOff className="h-4 w-4" />
+                ) : (
+                  <Eye className="h-4 w-4" />
+                )}
               </button>
             </div>
           </div>
-  
+
           {/* Captcha */}
           <div className="space-y-1">
             <div className="flex items-center justify-between bg-gray-200 rounded-md p-2 border border-gray-400">
-                <span className="text-black">{captcha.num1} + {captcha.num2}</span>
-                <span className="text-black">= </span>
+              <span className="text-black">
+                {captcha.num1} + {captcha.num2}
+              </span>
+              <span className="text-black">= </span>
               <Input
                 type="text"
                 value={captchaAnswer}
@@ -91,12 +104,18 @@ export default function LoginForm() {
                 className="w-20 bg-white border border-gray-400 text-black px-2 py-1 rounded-md focus:outline-none"
                 required
               />
-              <Button type="button" variant="ghost" size="icon" onClick={refreshCaptcha} className="h-8 w-8 p-1 bg-transparent hover:bg-transparent focus:bg-transparent">
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                onClick={refreshCaptcha}
+                className="h-8 w-8 p-1 bg-transparent hover:bg-transparent focus:bg-transparent"
+              >
                 <RefreshCw className="h-4 w-4 text-[#73819A]" />
               </Button>
             </div>
           </div>
-  
+
           {/* Login Button */}
           <div className="space-y-1">
             <GradientButton label="LOGIN" redirect="/dashboard" />
@@ -104,5 +123,5 @@ export default function LoginForm() {
         </form>
       </div>
     </div>
-  );  
+  );
 }

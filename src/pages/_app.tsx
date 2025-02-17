@@ -9,7 +9,10 @@ import FindSettlement from "@/components/settlement/search";
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const showNavbar = !["/"].includes(router.pathname);
-  const showFindSettlement = ["/settlement/user", "/settlement/master"].includes(router.pathname);
+  const showFindSettlement = [
+    "/settlement/user",
+    "/settlement/master",
+  ].includes(router.pathname);
 
   // useEffect(() => {
   //   const disableRightClick = (event: MouseEvent) => event.preventDefault();

@@ -258,14 +258,16 @@ const UserDataPage = () => {
               </table>
             </div>
             <div className="flex justify-between">
-                <span>Showing {0} - {0} of {0} entries</span>
-                <div className="flex">
-                  <GradientButton className="!rounded-none" label="First" />
-                  <GradientButton className="!rounded-none" label="Prev" />
-                  <GradientButton className="!rounded-none" label={"1"} />
-                  <GradientButton className="!rounded-none" label="Next" />
-                  <GradientButton className="!rounded-none" label="Last" />
-                </div> 
+              <span>
+                Showing {0} - {0} of {0} entries
+              </span>
+              <div className="flex">
+                <GradientButton className="!rounded-none" label="First" />
+                <GradientButton className="!rounded-none" label="Prev" />
+                <GradientButton className="!rounded-none" label={"1"} />
+                <GradientButton className="!rounded-none" label="Next" />
+                <GradientButton className="!rounded-none" label="Last" />
+              </div>
             </div>
           </div>
         )}

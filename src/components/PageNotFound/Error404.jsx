@@ -1,5 +1,5 @@
-import React from "react"
-import CommonError from "@/components/PageNotFound/CommonError"
+import React from "react";
+import CommonError from "@/components/PageNotFound/CommonError";
 
 const Error404 = () => {
   return (
@@ -8,7 +8,7 @@ const Error404 = () => {
       title="Sorry we couldn't find this page."
       subtext=" But don't worry, you can find plenty of other things on our homepage"
     />
-  )
-}
+  );
+};
 
-export default Error404
+export default Error404;

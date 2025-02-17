@@ -53,31 +53,55 @@ const UserStats: React.FC = () => {
       <div className="flex flex-col">
         <p className="relative group">
           Given Bal:
-          <ToolTip text={tooltips.givenBalance} value={userData.givenBalance.toFixed(2)} className="text-green-400" />
+          <ToolTip
+            text={tooltips.givenBalance}
+            value={userData.givenBalance.toFixed(2)}
+            className="text-green-400"
+          />
         </p>
         <p className="relative group">
           Available:
-          <ToolTip text={tooltips.availableBalance} value={userData.availableBalance.toFixed(2)} className="text-green-400" />
+          <ToolTip
+            text={tooltips.availableBalance}
+            value={userData.availableBalance.toFixed(2)}
+            className="text-green-400"
+          />
         </p>
       </div>
       <div className="flex flex-col">
         <p className="relative group">
           Up Line:
-          <ToolTip text={tooltips.upLine} value={userData.upLine} className="" />
+          <ToolTip
+            text={tooltips.upLine}
+            value={userData.upLine}
+            className=""
+          />
         </p>
         <p className="relative group">
           Down Line:
-          <ToolTip text={tooltips.downLine} value={userData.downLine} className="" />
+          <ToolTip
+            text={tooltips.downLine}
+            value={userData.downLine}
+            className=""
+          />
         </p>
       </div>
       <div className="flex flex-col">
         <p className="relative group">
           Current P&L:
-          <ToolTip text={tooltips.currentPL} value={userData.currentPL} className="" />
+          <ToolTip
+            text={tooltips.currentPL}
+            value={userData.currentPL}
+            className=""
+          />
         </p>
         <p className="relative group">
           Exposure:
-          <ToolTip text={tooltips.exposure} value={userData.exposure} className="" />
+          <ToolTip
+            text={tooltips.exposure}
+            value={userData.exposure}
+            className=""
+          />
         </p>
       </div>
       <div className="flex flex-col">
