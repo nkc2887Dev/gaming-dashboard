@@ -1,4 +1,4 @@
-import MasterPasswordModal from "@/components/common/model/masterPassword";
+import MasterPasswordModal from "@/components/common/model/MasterPassword";
 import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ElipsButton } from "@/components/ui/gradient-button";

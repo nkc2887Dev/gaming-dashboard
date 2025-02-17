@@ -219,9 +219,9 @@ export default function Navbar({ className }: { className: string }) {
               </div>
 
               {/* Cutting */}
-              <button className="flex items-center gap-1 hover:text-gray-300 block p-2 hover:bg-[#16A4BC]">
+              {/* <button className="flex items-center gap-1 hover:text-gray-300 block p-2 hover:bg-[#16A4BC]">
                 <Link href="/cutting">Cutting</Link>
-              </button>
+              </button> */}
 
               {/* Control Dropdown */}
               <div className="relative group">
@@ -231,7 +231,7 @@ export default function Navbar({ className }: { className: string }) {
                 </button>
                 <div className="z-[9999] absolute left-0 mt-2 w-40 bg-[#16A4BC] text-white py-2 rounded shadow-lg  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <Link
-                    href="/control/user"
+                    href="/control/game"
                     className="block p-2 hover:bg-[#017082] text-sm"
                   >
                     Game

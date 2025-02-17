@@ -5,7 +5,6 @@ import Input from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { RefreshCw, Eye, EyeOff } from "lucide-react"
 import Image from "next/image";
-import Link from "next/link"
 import { GradientButton } from "@/components/ui/gradient-button"
 import logo from "@/assets/image/logo.jpg";
 
@@ -82,8 +81,9 @@ export default function LoginForm() {
   
           {/* Captcha */}
           <div className="space-y-1">
-            <div className="flex items-center gap-2 bg-gray-200 rounded-md p-2 border border-gray-400">
-                <span className="text-black">{captcha.num1} + {captcha.num2} = ?</span>
+            <div className="flex items-center justify-between bg-gray-200 rounded-md p-2 border border-gray-400">
+                <span className="text-black">{captcha.num1} + {captcha.num2}</span>
+                <span className="text-black">= </span>
               <Input
                 type="text"
                 value={captchaAnswer}
@@ -91,7 +91,7 @@ export default function LoginForm() {
                 className="w-20 bg-white border border-gray-400 text-black px-2 py-1 rounded-md focus:outline-none"
                 required
               />
-              <Button type="button" variant="ghost" size="icon" onClick={refreshCaptcha} className="h-8 w-8 p-1">
+              <Button type="button" variant="ghost" size="icon" onClick={refreshCaptcha} className="h-8 w-8 p-1 bg-transparent hover:bg-transparent focus:bg-transparent">
                 <RefreshCw className="h-4 w-4 text-[#73819A]" />
               </Button>
             </div>
@@ -100,12 +100,6 @@ export default function LoginForm() {
           {/* Login Button */}
           <div className="space-y-1">
             <GradientButton label="LOGIN" redirect="/dashboard" />
-          {/* <Button
-            type="submit"
-            className="w-full bg-gradient-to-b from-[#00a3cc] to-[#008fb3] hover:from-[#008fb3] hover:to-[#007a99] text-white font-medium py-2 rounded-md shadow-md"
-          >
-            <Link href="/dashboard">LOGIN</Link>
-          </Button> */}
           </div>
         </form>
       </div>

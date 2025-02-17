@@ -6,7 +6,7 @@ import UserUpdateModal from "@/components/common/model/userUpdate";
 import CreditDepositModal from "@/components/common/model/creditDeposit";
 import WithdrawalModal from "@/components/common/model/withdrawal";
 import ChangePasswordModal from "@/components/common/model/changePassword";
-import MasterPasswordModal from "@/components/common/model/masterPassword";
+import MasterPasswordModal from "@/components/common/model/MasterPassword";
 import LastLoginModal from "@/components/common/model/lastLogin";
 
 const username = "testsuperadmin123";

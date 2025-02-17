@@ -9,7 +9,7 @@ import {
 import { sportsData } from "@/lib/menu-data";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 const NAVBAR_MENU = [
   { name: "Dashboard", path: "/dashboard" },
@@ -42,9 +42,9 @@ export default function SportsMenu({
   setIsMenuOpen,
   isMenuOpen,
 }: {
-  isMobile: Boolean;
+  isMobile: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
-  isMenuOpen: Boolean;
+  isMenuOpen: boolean;
 }) {
   const [expandedSports, setExpandedSports] = useState<string[]>(["cricket"]);
   const [expandedTournaments, setExpandedTournaments] = useState<string[]>([]);
@@ -70,11 +70,6 @@ export default function SportsMenu({
   const toggleDropdown = (dropdownName: string) => {
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
-
-  // Close menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [router.pathname]);
 
   const handleClick = (path: string) => {
     setIsMenuOpen(false);
@@ -121,7 +116,12 @@ export default function SportsMenu({
                 {activeDropdown === key && (
                   <div>
                     {items.map(({ name, path }) => (
-                      <Link key={path} href={path} className="block text-sm">
+                      <Link
+                        key={path}
+                        href={path}
+                        className="block text-sm"
+                        onClick={() => handleClick(path)}
+                      >
                         <div className="flex items-center p-3 text-sm hover:bg-white/10 transition-colors cursor-pointer">
                           <span>{name}</span>
                         </div>
