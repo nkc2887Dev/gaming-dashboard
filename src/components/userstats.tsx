@@ -39,18 +39,19 @@ const tooltips = {
 
 const UserStats: React.FC = () => {
   return (
-    <div className="text-white p-4 px-16 flex justify-between items-center rounded-lg shadow-md">
-      <div className="flex flex-col">
+    <div className="text-white p-4 md:px-16 flex flex-wrap justify-between items-start rounded-lg shadow-md">
+      <div className="flex flex-col md:w-auto mb-4 md:mb-0">
         <p className="relative group">
           User ID:
-          <ToolTip text={tooltips.id} value={userData.id} className="" />
+          <ToolTip text={tooltips.id} value={userData.id} />
         </p>
         <p className="relative group">
           User Type:
-          <ToolTip text={tooltips.type} value={userData.type} className="" />
+          <ToolTip text={tooltips.type} value={userData.type} />
         </p>
       </div>
-      <div className="flex flex-col">
+
+      <div className="flex flex-col md:w-auto mb-4 md:mb-0">
         <p className="relative group">
           Given Bal:
           <ToolTip
@@ -68,46 +69,33 @@ const UserStats: React.FC = () => {
           />
         </p>
       </div>
-      <div className="flex flex-col">
+
+      <div className="flex flex-col md:w-auto mb-4 md:mb-0">
         <p className="relative group">
           Up Line:
-          <ToolTip
-            text={tooltips.upLine}
-            value={userData.upLine}
-            className=""
-          />
+          <ToolTip text={tooltips.upLine} value={userData.upLine} />
         </p>
         <p className="relative group">
           Down Line:
-          <ToolTip
-            text={tooltips.downLine}
-            value={userData.downLine}
-            className=""
-          />
+          <ToolTip text={tooltips.downLine} value={userData.downLine} />
         </p>
       </div>
-      <div className="flex flex-col">
+
+      <div className="flex flex-col md:w-auto mb-4 md:mb-0">
         <p className="relative group">
           Current P&L:
-          <ToolTip
-            text={tooltips.currentPL}
-            value={userData.currentPL}
-            className=""
-          />
+          <ToolTip text={tooltips.currentPL} value={userData.currentPL} />
         </p>
         <p className="relative group">
           Exposure:
-          <ToolTip
-            text={tooltips.exposure}
-            value={userData.exposure}
-            className=""
-          />
+          <ToolTip text={tooltips.exposure} value={userData.exposure} />
         </p>
       </div>
-      <div className="flex flex-col">
+
+      <div className="flex flex-col md:w-auto">
         <p className="relative group">
           My P&L:
-          <ToolTip text={tooltips.myPL} value={userData.myPL} className="" />
+          <ToolTip text={tooltips.myPL} value={userData.myPL} />
         </p>
       </div>
     </div>

@@ -4,8 +4,8 @@ import React from "react";
 const CommonError = ({ title, subtext }) => {
   const router = useRouter();
   return (
-    <div className=" flex py-10 items-center justify-center flex-col h-screen  bg-secondary overflow-hidden">
-      <div className="max-w-2xl m-auto py-10 px-6 text-center min-h-screen flex items-center justify-center z-10">
+    <div className=" flex py-10 items-center justify-center flex-col bg-secondary overflow-hidden">
+      <div className="max-w-2xl m-auto py-10 px-6 text-center flex items-center justify-center z-10">
         <div className="text-center">
           <img
             src={`/logo.jpg`}

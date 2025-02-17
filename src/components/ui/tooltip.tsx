@@ -5,7 +5,7 @@ const ToolTip = ({
 }: {
   text: string;
   value: string | number;
-  className: string | undefined;
+  className?: string | undefined;
 }) => {
   return (
     <>

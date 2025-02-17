@@ -2,8 +2,9 @@ import Navbar from "@/components/navbar";
 import { useRouter } from "next/router";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import ScrollingFooter from "@/components/scrolling-footer";
+import SlidingFooter from "@/components/scrolling-footer";
 import FindSettlement from "@/components/settlement/search";
+import Head from "next/head";
 // import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -48,15 +49,21 @@ export default function App({ Component, pageProps }: AppProps) {
   ];
   // 📢
   return (
-    <div className="flex flex-col h-screen">
-      {showNavbar && <Navbar className={"fixed top-0 left-0 w-full z-50"} />}
-      <main className="overflow-y-auto">
-        <Component {...pageProps} />
-      </main>
-      <footer className="fixed bottom-0 left-0 w-full z-50 bg-white">
-        {showFindSettlement && <FindSettlement />}
-        {showNavbar && <ScrollingFooter messages={messages} />}
-      </footer>
-    </div>
+    <>
+      <Head>
+        {/* <title>𝗚𝗮𝗷𝗮𝗻𝗮𝗻𝗱 | 𝗔𝗱𝗺𝗶𝗻 - 𝗔𝘄𝗮𝗿𝗱 𝗪𝗶𝗻𝗻𝗶𝗻𝗴 𝗘𝘅𝗰𝗵𝗮𝗻𝗴𝗲</title> */}
+        <title>Gajanand | Admin - Award Winning Exchange</title>
+      </Head>
+      <div className="flex flex-col h-screen">
+        {showNavbar && <Navbar className={"fixed top-0 left-0 w-full z-50"} />}
+        <main className="overflow-y-auto">
+          <Component {...pageProps} />
+        </main>
+        <footer className="fixed bottom-0 left-0 w-full z-50 bg-white">
+          {showFindSettlement && <FindSettlement />}
+          {showNavbar && <SlidingFooter messages={messages} />}
+        </footer>
+      </div>
+    </>
   );
 }
