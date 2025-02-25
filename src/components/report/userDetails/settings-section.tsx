@@ -34,10 +34,10 @@ const ButtonData = [
     id: 7,
     label: "Game Control",
   },
-  {
-    id: 8,
-    label: "Casino Control",
-  },
+  // {
+  //   id: 8,
+  //   label: "Casino Control",
+  // },
 ];
 
 export function SettingsSection({

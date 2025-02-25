@@ -51,7 +51,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        {/* <title>𝗚𝗮𝗷𝗮𝗻𝗮𝗻𝗱 | 𝗔𝗱𝗺𝗶𝗻 - 𝗔𝘄𝗮𝗿𝗱 𝗪𝗶𝗻𝗻𝗶𝗻𝗴 𝗘𝘅𝗰𝗵𝗮𝗻𝗴𝗲</title> */}
         <title>Gajanand | Admin - Award Winning Exchange</title>
       </Head>
       <div className="flex flex-col h-screen">

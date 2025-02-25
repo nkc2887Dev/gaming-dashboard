@@ -15,10 +15,10 @@ interface MinMaxBetsTableProps {
 
 const headers = [
   { sport: "Cricket", columns: ["Odds", "Bookmaker", "Fancy", "Lottery"] },
-  { sport: "Soccer", columns: ["Odds", "Bookmaker", "Over Under", "Lottery"] },
-  { sport: "Tennis", columns: ["Odds", "Set Winner", "Bookmaker", "Lottery"] },
-  { sport: "Horse", columns: ["Odds"] },
-  { sport: "Greyhound", columns: ["Odds"] },
+  // { sport: "Soccer", columns: ["Odds", "Bookmaker", "Over Under", "Lottery"] },
+  // { sport: "Tennis", columns: ["Odds", "Set Winner", "Bookmaker", "Lottery"] },
+  // { sport: "Horse", columns: ["Odds"] },
+  // { sport: "Greyhound", columns: ["Odds"] },
 ];
 
 export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
@@ -37,7 +37,7 @@ export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
                   <TableCell className="text-left font-medium" colSpan={4}>
                     Cricket
                   </TableCell>
-                  <TableCell className="text-left font-medium" colSpan={4}>
+                  {/* <TableCell className="text-left font-medium" colSpan={4}>
                     Soccer
                   </TableCell>
                   <TableCell className="text-left font-medium" colSpan={4}>
@@ -46,7 +46,7 @@ export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
                   <TableCell className="text-left font-medium">Horse</TableCell>
                   <TableCell className="text-left font-medium">
                     GreyHound
-                  </TableCell>
+                  </TableCell> */}
                 </TableRow>
                 <TableRow className="bg-[#ECECEC]">
                   <TableCell className="text-left font-medium"></TableCell>
@@ -67,9 +67,9 @@ export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
                   <TableCell className="w-24 text-left font-medium bg-[#ECECEC]">
                     Max Bet
                   </TableCell>
-                  {Array.from({ length: 14 }).map((_, index) => (
+                  {Array.from({ length: 4 }).map((_, index) => (
                     <TableCell key={index}>
-                      <Input type="number" min={0} className="w-14" />
+                      <Input type="number" min={0} className="w-full" />
                     </TableCell>
                   ))}
                 </TableRow>
@@ -77,9 +77,9 @@ export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
                   <TableCell className="w-24 text-left font-medium bg-[#ECECEC]">
                     Max Profit
                   </TableCell>
-                  {Array.from({ length: 14 }).map((_, index) => (
+                  {Array.from({ length: 4 }).map((_, index) => (
                     <TableCell key={index}>
-                      <Input type="number" min={0} className="w-14" />
+                      <Input type="number" min={0} className="w-full" />
                     </TableCell>
                   ))}
                 </TableRow>

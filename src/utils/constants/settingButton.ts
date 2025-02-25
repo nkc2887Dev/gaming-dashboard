@@ -6,5 +6,5 @@ export const SETTINGS_BUTTON = {
   CHANGE_PASSWORD: "Change Password",
   WITHDRAWAL: "Withdrawal",
   GAME_CONTROL: "Game Control",
-  CASINO_CONTROL: "Casino Control",
+  // CASINO_CONTROL: "Casino Control",
 };

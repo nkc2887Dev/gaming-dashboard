@@ -31,10 +31,10 @@ interface Market {
   amount: number;
 }
 
-interface CasinoDetail {
-  name: string;
-  value: number;
-}
+// interface CasinoDetail {
+//   name: string;
+//   value: number;
+// }
 
 // Sample data
 const metricBoxes: MetricBox[] = [
@@ -51,16 +51,16 @@ const losingPlayers: Player[] = [];
 const winningMarkets: Market[] = [];
 const losingMarkets: Market[] = [];
 
-const casinoDetails: CasinoDetail[] = [
-  { name: "Indian Poker/ Live Casino P&L", value: 0 },
-  { name: "Indian Poker II P&L", value: 0 },
-  { name: "Evolution P&L", value: 0 },
-  { name: "Vivo P&L", value: 0 },
-  { name: "Betgames P&L", value: 0 },
-  { name: "Casino III P&L", value: 0 },
-  { name: "Spribe P&L", value: 0 },
-  { name: "Total P&L", value: 0 },
-];
+// const casinoDetails: CasinoDetail[] = [
+//   { name: "Indian Poker/ Live Casino P&L", value: 0 },
+//   { name: "Indian Poker II P&L", value: 0 },
+//   { name: "Evolution P&L", value: 0 },
+//   { name: "Vivo P&L", value: 0 },
+//   { name: "Betgames P&L", value: 0 },
+//   { name: "Casino III P&L", value: 0 },
+//   { name: "Spribe P&L", value: 0 },
+//   { name: "Total P&L", value: 0 },
+// ];
 
 export default function Dashboard() {
   const [fromDate, setFromDate] = useState<Date | null>(new Date());
@@ -285,8 +285,8 @@ export default function Dashboard() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="cricket">Cricket</SelectItem>
-                <SelectItem value="football">Football</SelectItem>
-                <SelectItem value="tennis">Tennis</SelectItem>
+                {/* <SelectItem value="football">Football</SelectItem> */}
+                {/* <SelectItem value="tennis">Tennis</SelectItem> */}
               </SelectContent>
             </Select>
             {/* Table */}
@@ -350,7 +350,7 @@ export default function Dashboard() {
         </div>
 
         {/* CASINO GAMEPLAY DETAILS */}
-        <div
+        {/* <div
           className="bg-white rounded-lg overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
@@ -367,7 +367,7 @@ export default function Dashboard() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

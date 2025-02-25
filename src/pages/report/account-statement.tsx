@@ -1,11 +1,5 @@
-import { mockData } from "@/lib/user-details";
 import { useEffect, useState } from "react";
 import Input from "@/components/ui/input";
-import { UserDetailsSection } from "@/components/report/userDetails/user-details-section";
-import { SettingsSection } from "@/components/report/userDetails/settings-section";
-import { AccountDetailsSection } from "@/components/report/userDetails/account-details-section";
-import { GamePlaySection } from "@/components/report/userDetails/game-play-section";
-import { MinMaxBetsTable } from "@/components/report/userDetails/min-max-bets";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -20,7 +14,13 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
 import { SHOW_ENTRIES } from "@/utils/constants/pagination";
 
-const REPORT_DROPDOWN: any = {
+type ReportDropdown = {
+  [key: string]: {
+    [subKey: string]: string;
+  };
+};
+
+const REPORT_DROPDOWN: ReportDropdown = {
   ALL: {
     ALL: "ALL",
   },
@@ -30,8 +30,8 @@ const REPORT_DROPDOWN: any = {
   "GAME REPORT": {
     ALL: "ALL",
     CRICKET: "cricket",
-    TENNIS: "tennis",
-    SOCCER: "soccer",
+    // TENNIS: "tennis",
+    // SOCCER: "soccer",
   },
   "SETTLEMENT REPORT": {
     ALL: "ALL",
@@ -41,39 +41,39 @@ const REPORT_DROPDOWN: any = {
   },
 };
 
-interface ISelectComponent {
-  selected: string;
-  setSelected: (value: string) => void;
-  data: string[];
-}
+// interface ISelectComponent {
+//   selected: string;
+//   setSelected: (value: string) => void;
+//   data: string[];
+// }
 
-const selectComponent = ({ selected, setSelected, data }: ISelectComponent) => {
-  return (
-    <Select
-      className="w-full sm:max-w-xs border border-gray-300 rounded text-[#495057]"
-      value={selected}
-      onChange={setSelected}
-    >
-      <SelectTrigger className="h-10 w-full flex items-center justify-between px-3 border border-gray-300 rounded bg-white">
-        <SelectValue placeholder={selected} />
-        <ChevronDown className="h-4 w-4 ml-2" />
-      </SelectTrigger>
-      <SelectContent>
-        {data &&
-          data.map((sports: string) => (
-            <SelectItem value={sports}>{sports}</SelectItem>
-          ))}
-      </SelectContent>
-    </Select>
-  );
-};
+// const selectComponent = ({ selected, setSelected, data }: ISelectComponent) => {
+//   return (
+//     <Select
+//       className="w-full sm:max-w-xs border border-gray-300 rounded text-[#495057]"
+//       value={selected}
+//       onChange={setSelected}
+//     >
+//       <SelectTrigger className="h-10 w-full flex items-center justify-between px-3 border border-gray-300 rounded bg-white">
+//         <SelectValue placeholder={selected} />
+//         <ChevronDown className="h-4 w-4 ml-2" />
+//       </SelectTrigger>
+//       <SelectContent>
+//         {data &&
+//           data.map((sports: string, index) => (
+//             <SelectItem key={index} value={sports}>{sports}</SelectItem>
+//           ))}
+//       </SelectContent>
+//     </Select>
+//   );
+// };
 
 const UserDataPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [fromDate, setFromDate] = useState<Date | null>(new Date());
   const [toDate, setToDate] = useState<Date | null>(new Date());
   const [selectedSport, setSelectedSport] = useState("ALL");
-  const [listOfSub, setListOfSub] = useState([]);
+  const [listOfSub, setListOfSub] = useState<string[]>([]);
   const [selectedSubSport, setSelectedSubSport] = useState("ALL");
   const [pageEntry, setPageEntry] = useState<string>("25");
   const [showDetails, setShowDetails] = useState(false);
@@ -108,8 +108,10 @@ const UserDataPage = () => {
             </SelectTrigger>
             <SelectContent>
               {firstDropdown &&
-                firstDropdown.map((sports) => (
-                  <SelectItem value={sports}>{sports}</SelectItem>
+                firstDropdown.map((sports, index) => (
+                  <SelectItem key={index} value={sports}>
+                    {sports}
+                  </SelectItem>
                 ))}
             </SelectContent>
           </Select>
@@ -126,8 +128,10 @@ const UserDataPage = () => {
             </SelectTrigger>
             <SelectContent>
               {listOfSub &&
-                listOfSub.map((sports) => (
-                  <SelectItem value={sports}>{sports}</SelectItem>
+                listOfSub.map((sports, index) => (
+                  <SelectItem key={index} value={sports}>
+                    {sports}
+                  </SelectItem>
                 ))}
             </SelectContent>
           </Select>
@@ -215,8 +219,10 @@ const UserDataPage = () => {
                   </SelectTrigger>
                   <SelectContent>
                     {showEntries &&
-                      showEntries.map((entry) => (
-                        <SelectItem value={entry}>{entry}</SelectItem>
+                      showEntries.map((entry, index) => (
+                        <SelectItem key={index} value={entry}>
+                          {entry}
+                        </SelectItem>
                       ))}
                   </SelectContent>
                 </Select>

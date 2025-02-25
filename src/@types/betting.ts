@@ -14,16 +14,16 @@ export interface SportLimits {
 
 export interface BettingLimits {
   cricket: SportLimits;
-  soccer: SportLimits;
-  tennis: SportLimits;
-  horse: {
-    maxBet: { odds: string };
-    maxProfit: { odds: string };
-  };
-  greyHound: {
-    maxBet: { odds: string };
-    maxProfit: { odds: string };
-  };
+  // soccer: SportLimits;
+  // tennis: SportLimits;
+  // horse: {
+  //   maxBet: { odds: string };
+  //   maxProfit: { odds: string };
+  // };
+  // greyHound: {
+  //   maxBet: { odds: string };
+  //   maxProfit: { odds: string };
+  // };
   sportbook: {
     maxBet: string;
     maxProfit: string;

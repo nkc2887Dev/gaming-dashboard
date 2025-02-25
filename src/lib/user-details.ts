@@ -40,42 +40,42 @@ export const mockData: UserData = {
         lottery: "1000",
       },
     },
-    soccer: {
-      maxBet: {
-        odds: "800",
-        bookmaker: "400",
-        overUnder: "300",
-        lottery: "100",
-      },
-      maxProfit: {
-        odds: "8000",
-        bookmaker: "4000",
-        overUnder: "3000",
-        lottery: "1000",
-      },
-    },
-    tennis: {
-      maxBet: {
-        odds: "600",
-        setWinner: "300",
-        bookmaker: "400",
-        lottery: "100",
-      },
-      maxProfit: {
-        odds: "6000",
-        setWinner: "3000",
-        bookmaker: "4000",
-        lottery: "1000",
-      },
-    },
-    horse: {
-      maxBet: { odds: "500" },
-      maxProfit: { odds: "5000" },
-    },
-    greyHound: {
-      maxBet: { odds: "400" },
-      maxProfit: { odds: "4000" },
-    },
+    // soccer: {
+    //   maxBet: {
+    //     odds: "800",
+    //     bookmaker: "400",
+    //     overUnder: "300",
+    //     lottery: "100",
+    //   },
+    //   maxProfit: {
+    //     odds: "8000",
+    //     bookmaker: "4000",
+    //     overUnder: "3000",
+    //     lottery: "1000",
+    //   },
+    // },
+    // tennis: {
+    //   maxBet: {
+    //     odds: "600",
+    //     setWinner: "300",
+    //     bookmaker: "400",
+    //     lottery: "100",
+    //   },
+    //   maxProfit: {
+    //     odds: "6000",
+    //     setWinner: "3000",
+    //     bookmaker: "4000",
+    //     lottery: "1000",
+    //   },
+    // },
+    // horse: {
+    //   maxBet: { odds: "500" },
+    //   maxProfit: { odds: "5000" },
+    // },
+    // greyHound: {
+    //   maxBet: { odds: "400" },
+    //   maxProfit: { odds: "4000" },
+    // },
     sportbook: {
       maxBet: "1000",
       maxProfit: "10000",

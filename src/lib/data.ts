@@ -60,14 +60,14 @@ export const dashboardData = {
     totalPL: 12000,
   },
 
-  casinoDetails: [
-    { name: "Indian Poker/ Live Casino P&L", value: 15000 },
-    { name: "Indian Poker II P&L", value: 12000 },
-    { name: "Evolution P&L", value: 8000 },
-    { name: "Vivo P&L", value: 6000 },
-    { name: "Betgames P&L", value: 4000 },
-    { name: "Casino III P&L", value: 3000 },
-    { name: "Spribe P&L", value: 2000 },
-    { name: "Total P&L", value: 50000 },
-  ],
+  // casinoDetails: [
+  //   { name: "Indian Poker/ Live Casino P&L", value: 15000 },
+  //   { name: "Indian Poker II P&L", value: 12000 },
+  //   { name: "Evolution P&L", value: 8000 },
+  //   { name: "Vivo P&L", value: 6000 },
+  //   { name: "Betgames P&L", value: 4000 },
+  //   { name: "Casino III P&L", value: 3000 },
+  //   { name: "Spribe P&L", value: 2000 },
+  //   { name: "Total P&L", value: 50000 },
+  // ],
 };

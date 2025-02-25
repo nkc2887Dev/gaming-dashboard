@@ -63,24 +63,24 @@ export const sportsData: SportCategory[] = [
       },
     ],
   },
-  {
-    id: "soccer",
-    name: "⚽ Soccer",
-    tournaments: [],
-  },
-  {
-    id: "tennis",
-    name: "🎾 Tennis",
-    tournaments: [],
-  },
-  {
-    id: "horse",
-    name: "🐎 Horse",
-    tournaments: [],
-  },
-  {
-    id: "greyhound",
-    name: "🐕 Greyhound",
-    tournaments: [],
-  },
+  // {
+  //   id: "soccer",
+  //   name: "⚽ Soccer",
+  //   tournaments: [],
+  // },
+  // {
+  //   id: "tennis",
+  //   name: "🎾 Tennis",
+  //   tournaments: [],
+  // },
+  // {
+  //   id: "horse",
+  //   name: "🐎 Horse",
+  //   tournaments: [],
+  // },
+  // {
+  //   id: "greyhound",
+  //   name: "🐕 Greyhound",
+  //   tournaments: [],
+  // },
 ];

@@ -41,8 +41,8 @@ export function GamePlaySection({ gamePlays }: GamePlaySectionProps) {
 
           {/* Second Table - Casino P&L */}
           <GamePlayTable
-            headers={["Casino", "Total P & L"]}
-            data={gamePlays.map((game) => [game.casino, game.totalPL])}
+            headers={["Total P & L"]}
+            data={gamePlays.map((game) => [game.totalPL])}
           />
 
           {/* Third Table - Market Data */}
