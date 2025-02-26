@@ -20,7 +20,7 @@ export default function LoginForm() {
     num2: 2,
   });
   const router = useRouter();
-  
+
   const refreshCaptcha = () => {
     setCaptcha({
       num1: Math.floor(Math.random() * 100) + 1,
@@ -31,13 +31,28 @@ export default function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const correctAnswer = captcha.num1 + captcha.num2;
-    if (Number.parseInt(captchaAnswer) === correctAnswer) {
-      Toast.success("Login successful");
-    } else {
-      Toast.error("Incorrect CAPTCHA answer");
-      refreshCaptcha();
+  
+    const validations = [
+      { condition: !username, message: "Please insert Username!" },
+      { condition: !password, message: "Please insert Password!" },
+      { condition: !captchaAnswer, message: "Solve CAPTCHA to move ahead" },
+    ];
+  
+    for (const { condition, message } of validations) {
+      if (condition) {
+        Toast.error(message);
+        return;
+      }
     }
+  
+    if (Number(captchaAnswer) !== captcha.num1 + captcha.num2) {
+      Toast.error("Invalid CAPTCHA");
+      refreshCaptcha();
+      return;
+    }
+  
+    Toast.success("Login successful");
+    router.push("/dashboard");
   };
 
   return (
@@ -64,7 +79,6 @@ export default function LoginForm() {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className="w-full bg-white border border-gray-400 text-black px-3 py-2 rounded-md focus:outline-none"
-              required
             />
           </div>
 
@@ -77,7 +91,6 @@ export default function LoginForm() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full bg-white border border-gray-400 text-black px-3 py-2 rounded-md pr-10 focus:outline-none"
-                required
               />
               <button
                 type="button"
@@ -105,7 +118,6 @@ export default function LoginForm() {
                 value={captchaAnswer}
                 onChange={(e) => setCaptchaAnswer(e.target.value)}
                 className="w-20 bg-white border border-gray-400 text-black px-2 py-1 rounded-md focus:outline-none"
-                required
               />
               <Button
                 type="button"
@@ -121,7 +133,7 @@ export default function LoginForm() {
 
           {/* Login Button */}
           <div className="space-y-1">
-            <GradientButton label="LOGIN" onclick={() => router.push("/dashboard")} />
+            <GradientButton label="LOGIN" />
           </div>
         </form>
       </div>
