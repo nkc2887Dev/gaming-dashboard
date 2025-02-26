@@ -7,6 +7,8 @@ import { RefreshCw, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import { GradientButton } from "@/components/ui/gradient-button";
 import logo from "@/assets/image/logo.jpg";
+import Toast from "@/utils/toast";
+import { useRouter } from "next/router";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("");
@@ -17,7 +19,8 @@ export default function LoginForm() {
     num1: 10,
     num2: 2,
   });
-
+  const router = useRouter();
+  
   const refreshCaptcha = () => {
     setCaptcha({
       num1: Math.floor(Math.random() * 100) + 1,
@@ -30,9 +33,9 @@ export default function LoginForm() {
     e.preventDefault();
     const correctAnswer = captcha.num1 + captcha.num2;
     if (Number.parseInt(captchaAnswer) === correctAnswer) {
-      console.log("Login successful");
+      Toast.success("Login successful");
     } else {
-      alert("Incorrect CAPTCHA answer");
+      Toast.error("Incorrect CAPTCHA answer");
       refreshCaptcha();
     }
   };
@@ -118,7 +121,7 @@ export default function LoginForm() {
 
           {/* Login Button */}
           <div className="space-y-1">
-            <GradientButton label="LOGIN" redirect="/dashboard" />
+            <GradientButton label="LOGIN" onclick={() => router.push("/dashboard")} />
           </div>
         </form>
       </div>
