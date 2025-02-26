@@ -31,26 +31,26 @@ export default function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     const validations = [
       { condition: !username, message: "Please insert Username!" },
       { condition: !password, message: "Please insert Password!" },
       { condition: !captchaAnswer, message: "Solve CAPTCHA to move ahead" },
     ];
-  
+
     for (const { condition, message } of validations) {
       if (condition) {
         Toast.error(message);
         return;
       }
     }
-  
+
     if (Number(captchaAnswer) !== captcha.num1 + captcha.num2) {
       Toast.error("Invalid CAPTCHA");
       refreshCaptcha();
       return;
     }
-  
+
     Toast.success("Login successful");
     router.push("/dashboard");
   };

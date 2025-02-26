@@ -8,7 +8,7 @@ import Head from "next/head";
 // import { useEffect } from "react";
 // import { ReactNotifications } from 'react-notifications-component';
 // import 'react-notifications-component/dist/theme.css';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
