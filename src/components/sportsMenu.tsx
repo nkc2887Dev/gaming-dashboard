@@ -10,34 +10,7 @@ import { sportsData } from "@/lib/menu-data";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
-
-const NAVBAR_MENU = [
-  { name: "Dashboard", path: "/dashboard" },
-  { name: "Clients", path: "/client" },
-  { name: "Sport Analysis", path: "/sport-analysis" },
-];
-
-const DROPDOWN_MENUS = {
-  settlement: [
-    { name: "User", path: "/settlement/user" },
-    { name: "Master", path: "/settlement/master" },
-  ],
-  reports: [
-    { name: "User Detail", path: "/report/user-detail" },
-    { name: "Account Statement", path: "/report/account-statement" },
-    { name: "Settlement/Balance Report", path: "/report/settlement-balance" },
-    { name: "Transaction Report", path: "/report/transaction" },
-    { name: "Current Bets", path: "/report/current-bets" },
-    { name: "Profit & Loss Report", path: "/report/profit-loss" },
-    { name: "Event Profit & Loss Report", path: "/report/event-profit-loss" },
-    { name: "Bet History", path: "/report/bet-history" },
-    { name: "Live Bets", path: "/report/live-bets" },
-    { name: "Sports Revenue", path: "/report/sports-revenue" },
-    { name: "IP Lookup", path: "/report/ip-lookup" },
-  ],
-  control: [{ name: "Game", path: "/control/game" }],
-};
-
+import { DROPDOWN_MENUS, NAVBAR_MENU } from "@/utils/constants/routes";
 interface ISportsMenu {
   isMobile: boolean;
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;

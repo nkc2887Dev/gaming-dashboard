@@ -9,6 +9,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import logo from "@/assets/image/logo.jpg";
 import Toast from "@/utils/toast";
 import { useRouter } from "next/router";
+import { NAVIGATION_PATHS } from "@/utils/constants/routes";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("");
@@ -52,7 +53,7 @@ export default function LoginForm() {
     }
 
     Toast.success("Login successful");
-    router.push("/dashboard");
+    router.push(NAVIGATION_PATHS.DASHBOARD);
   };
 
   return (

@@ -10,7 +10,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import Input from "@/components/ui/input";
 
 interface MinMaxBetsTableProps {
-  data: BettingLimits;
+  data?: BettingLimits;
+  options?:
+    | {
+        title?: string;
+        titleBg?: string;
+        border?: string;
+      }
+    | undefined;
 }
 
 const headers = [
@@ -21,11 +28,15 @@ const headers = [
   // { sport: "Greyhound", columns: ["Odds"] },
 ];
 
-export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
+export function MinMaxBetsTable({ options }: MinMaxBetsTableProps) {
   return (
     <>
-      <Card className="mb-4 relative bg-[#F7F7F8]">
-        <div className="absolute -top-3 left-4 px-2 text-lg font-bold">
+      <Card
+        className={`mb-4 relative ${options?.border ? options.border : ""} ${options?.titleBg ? options.titleBg : "bg-[#F7F7F8]"}`}
+      >
+        <div
+          className={`absolute -top-3 left-4 px-2 ${options?.title ? options.title : "text-lg"} ${options?.titleBg ? options.titleBg : ""} font-bold`}
+        >
           Min Max Bets:
         </div>
         <CardContent className="pt-7">
@@ -58,7 +69,7 @@ export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
                       >
                         {col}
                       </TableCell>
-                    )),
+                    ))
                   )}
                 </TableRow>
               </TableHeader>
@@ -110,7 +121,7 @@ export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
                   </TableCell>
                   {Array.from({ length: 3 }).map((_, index) => (
                     <TableCell key={index}>
-                      <Input type="number" min={0} className="w-96" />
+                      <Input type="number" min={0} className="w-full" />
                     </TableCell>
                   ))}
                 </TableRow>
@@ -120,7 +131,7 @@ export function MinMaxBetsTable({ data }: MinMaxBetsTableProps) {
                   </TableCell>
                   {Array.from({ length: 3 }).map((_, index) => (
                     <TableCell key={index}>
-                      <Input type="number" min={0} className="w-96" />
+                      <Input type="number" min={0} className="w-full" />
                     </TableCell>
                   ))}
                 </TableRow>

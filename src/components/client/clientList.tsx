@@ -12,6 +12,8 @@ import { ChevronDown } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { SHOW_ENTRIES } from "@/utils/constants/pagination";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/router";
+import { NAVIGATION_PATHS } from "@/utils/constants/routes";
 
 const Header = [
   { title: "User Name", space: 15 },
@@ -44,14 +46,10 @@ const data = [
   },
 ];
 
-const ClientList = ({
-  setPage,
-}: {
-  setPage: (page: "clientList" | "addClient") => void;
-}) => {
+const ClientList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [pageEntry, setPageEntry] = useState<string>("25");
-
+  const router = useRouter();
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       // setShowDetails(true);
@@ -60,11 +58,11 @@ const ClientList = ({
   const showEntries = Object.values(SHOW_ENTRIES);
   return (
     <div className="min-h-screen p-4">
-      <div className="sm:p-6 border rounded bg-white shadow-md">
+      <div className="p-4 sm:p-6 border rounded bg-white shadow-md">
         <h2 className="text-lg font-semibold">Client List</h2>
         <div className="space-y-1">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between flex-wrap sm:flex-nowrap">
+            <div className="flex items-center justify-between flex-wrap sm:flex-nowrap gap-2">
               <Input
                 type="text"
                 placeholder="Search by client"
@@ -82,34 +80,36 @@ const ClientList = ({
                 className="h-8 sm:max-w-sm border border-gray-300 rounded"
               />
             </div>
-            <div className="flex items-center text-sm font-bold">
-              <span>Show</span>
-              <Select
-                className="w-full m-2 sm:max-w-xs border border-gray-300 rounded text-[#495057]"
-                value={pageEntry}
-                onChange={setPageEntry}
-              >
-                <SelectTrigger className="h-10 w-full flex items-center justify-between px-3 border border-gray-300 rounded bg-white">
-                  <SelectValue placeholder={pageEntry} />
-                  <ChevronDown className="h-4 w-4 ml-2" />
-                </SelectTrigger>
-                <SelectContent>
-                  {showEntries &&
-                    showEntries.map((entry, index) => (
-                      <SelectItem key={index} value={entry}>
-                        {entry}
-                      </SelectItem>
-                    ))}
-                </SelectContent>
-              </Select>
-              <span>entries</span>
+            <div className="flex items-center text-sm flex-wrap sm:flex-nowrap font-bold">
+              <div className="flex items-center text-sm mr-2">
+                <span>Show</span>
+                <Select
+                  className="w-full m-2 sm:max-w-xs border border-gray-300 rounded text-[#495057]"
+                  value={pageEntry}
+                  onChange={setPageEntry}
+                >
+                  <SelectTrigger className="h-10 w-full flex items-center justify-between px-3 border border-gray-300 rounded bg-white">
+                    <SelectValue placeholder={pageEntry} />
+                    <ChevronDown className="h-4 w-4 ml-2" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {showEntries &&
+                      showEntries.map((entry, index) => (
+                        <SelectItem key={index} value={entry}>
+                          {entry}
+                        </SelectItem>
+                      ))}
+                  </SelectContent>
+                </Select>
+                <span>entries</span>
+              </div>
               <Button
-                onClick={() => setPage("addClient")}
-                className="ml-2 text-nowrap rounded-sm text-sm font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md hover:from-[#159ab3] hover:to-[#03364c]"
+                onClick={() => router.push(NAVIGATION_PATHS.ADD_CLIENT)}
+                className="m-2 ml-0 text-nowrap rounded-sm text-sm font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md hover:from-[#159ab3] hover:to-[#03364c]"
               >
                 Add Client Account
               </Button>
-              <Button className="ml-2 text-nowrap rounded-sm text-sm font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md hover:from-[#159ab3] hover:to-[#03364c]">
+              <Button className="m-2 ml-0  text-nowrap rounded-sm text-sm font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#2E899C] to-[#159ab3] text-white shadow-md hover:from-[#159ab3] hover:to-[#03364c]">
                 Inactive List
               </Button>
             </div>
@@ -161,7 +161,7 @@ const ClientList = ({
               </tbody>
             </table>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap sm:flex-nowrap">
             <span>
               Showing {0} - {0} of {0} entries
             </span>
