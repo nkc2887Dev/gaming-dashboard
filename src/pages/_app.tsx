@@ -6,8 +6,6 @@ import SlidingFooter from "@/components/scrolling-footer";
 import FindSettlement from "@/components/settlement/search";
 import Head from "next/head";
 // import { useEffect } from "react";
-// import { ReactNotifications } from 'react-notifications-component';
-// import 'react-notifications-component/dist/theme.css';
 import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -57,7 +55,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>Gajanand | Admin - Award Winning Exchange</title>
       </Head>
       <ToastContainer />
-      {/* <ReactNotifications /> */}
       <div className="flex flex-col h-screen">
         {showNavbar && <Navbar className={"fixed top-0 left-0 w-full z-50"} />}
         <main className="overflow-y-auto">
