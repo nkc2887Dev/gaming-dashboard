@@ -73,7 +73,7 @@ export default function Dashboard() {
       <h2 className="text-lg font-semibold mb-2">Dashboard</h2>
       {/* Date Range Selector */}
       <div
-        className="bg-white p-4 rounded-lg mb-4 flex flex-wrap gap-4 items-start border shadow-xl"
+        className="bg-white p-4 rounded-md mb-4 flex flex-wrap gap-4 items-start border shadow-xl"
         style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
       >
         <div>
@@ -113,7 +113,7 @@ export default function Dashboard() {
         {metricBoxes.map((box, index) => (
           <div
             key={index}
-            className="bg-white p-4 rounded-lg border shadow-xl"
+            className="bg-white p-4 rounded-md border shadow-xl"
             style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
           >
             <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2 rounded-t-lg -mt-4 -mx-4 mb-2">
@@ -128,7 +128,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-4">
         {/* Top 5 Winning Players */}
         <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-md font-bold bg-[#16A3BB] text-black p-2">
@@ -156,7 +156,7 @@ export default function Dashboard() {
         {/* Similar tables for other sections */}
         {/* TOP 5 LOSING PLAYER */}
         <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">
@@ -183,7 +183,7 @@ export default function Dashboard() {
 
         {/* TOP 5 WINNING MARKETS */}
         <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">
@@ -211,7 +211,7 @@ export default function Dashboard() {
 
         {/* TOP 5 LOSING MARKETS */}
         <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">
@@ -242,7 +242,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {/* USER COUNT */}
         <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">
@@ -269,7 +269,7 @@ export default function Dashboard() {
 
         {/* SPORTS GAMEPLAY DETAILS */}
         <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">
@@ -311,7 +311,7 @@ export default function Dashboard() {
 
         {/* OTHERS GAMEPLAY DETAILS */}
         <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">
@@ -351,7 +351,7 @@ export default function Dashboard() {
 
         {/* CASINO GAMEPLAY DETAILS */}
         {/* <div
-          className="bg-white rounded-lg overflow-hidden border shadow-xl"
+          className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
           <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">

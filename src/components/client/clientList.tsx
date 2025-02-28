@@ -9,11 +9,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ChevronDown } from "lucide-react";
-import { GradientButton } from "@/components/ui/gradient-button";
 import { SHOW_ENTRIES } from "@/utils/constants/pagination";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/router";
 import { NAVIGATION_PATHS } from "@/utils/constants/routes";
+import { Pagination } from "../common/pagination";
 
 const Header = [
   { title: "User Name", space: 15 },
@@ -48,7 +48,10 @@ const data = [
 
 const ClientList = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [pageEntry, setPageEntry] = useState<string>("25");
+  const [pageEntry, setPageEntry] = useState<string>(SHOW_ENTRIES.TWENTY_FIVE);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
+
   const router = useRouter();
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -161,17 +164,17 @@ const ClientList = () => {
               </tbody>
             </table>
           </div>
-          <div className="flex justify-between flex-wrap sm:flex-nowrap">
+          <div className="flex justify-between items-center flex-wrap sm:flex-nowrap">
             <span>
               Showing {0} - {0} of {0} entries
             </span>
-            <div className="flex">
-              <GradientButton className="!rounded-none" label="First" />
-              <GradientButton className="!rounded-none" label="Prev" />
-              <GradientButton className="!rounded-none" label={"1"} />
-              <GradientButton className="!rounded-none" label="Next" />
-              <GradientButton className="!rounded-none" label="Last" />
-            </div>
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+              basePath="/client"
+              queryParam="page"
+            />
           </div>
         </div>
       </div>

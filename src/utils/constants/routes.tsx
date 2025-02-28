@@ -1,8 +1,8 @@
 export const NAVIGATION_PATHS = {
   DASHBOARD: "/dashboard",
   CLIENT: "/client",
-  ADD_CLIENT: "/add-client",
-  SPORT_ANALYSIS: "/sport-analysis",
+  ADD_CLIENT: "/addclient",
+  SPORT_ANALYSIS: "/sportanalysis",
   SETTLEMENT: "/settlement",
   USER_SETTLEMENT: "/settlement/user",
   MASTER_SETTLEMENT: "/settlement/master",

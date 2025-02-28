@@ -13,6 +13,7 @@ import { ChevronDown } from "lucide-react";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
 import { SHOW_ENTRIES } from "@/utils/constants/pagination";
+import { Pagination } from "@/components/common/pagination";
 
 type ReportDropdown = {
   [key: string]: {
@@ -75,8 +76,10 @@ const UserDataPage = () => {
   const [selectedSport, setSelectedSport] = useState("ALL");
   const [listOfSub, setListOfSub] = useState<string[]>([]);
   const [selectedSubSport, setSelectedSubSport] = useState("ALL");
-  const [pageEntry, setPageEntry] = useState<string>("25");
+  const [pageEntry, setPageEntry] = useState<string>(SHOW_ENTRIES.TWENTY_FIVE);
   const [showDetails, setShowDetails] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
 
   const firstDropdown = Object.keys(REPORT_DROPDOWN);
   useEffect(() => {
@@ -167,14 +170,14 @@ const UserDataPage = () => {
 
           {/* Action Buttons */}
           <GradientButton
-            className="w-full sm:w-auto rounded-l-lg"
+            className="w-full sm:w-auto rounded-l-lg text-md px-3 py-2 h-10"
             label="Go"
             size="sm"
             onclick={() => setShowDetails(true)}
           />
           <Button
             variant="destructive"
-            className="w-full sm:w-auto rounded-r-lg"
+            className="w-full sm:w-auto rounded-r-lg text-md px-3 py-2 h-10"
             size="sm"
             onClick={() => setShowDetails(false)}
           >
@@ -263,17 +266,17 @@ const UserDataPage = () => {
                 </tbody>
               </table>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center flex-wrap sm:flex-nowrap">
               <span>
                 Showing {0} - {0} of {0} entries
               </span>
-              <div className="flex">
-                <GradientButton className="!rounded-none" label="First" />
-                <GradientButton className="!rounded-none" label="Prev" />
-                <GradientButton className="!rounded-none" label={"1"} />
-                <GradientButton className="!rounded-none" label="Next" />
-                <GradientButton className="!rounded-none" label="Last" />
-              </div>
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+                basePath="/client"
+                queryParam="page"
+              />
             </div>
           </div>
         )}
