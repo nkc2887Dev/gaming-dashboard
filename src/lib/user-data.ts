@@ -24,8 +24,8 @@ export const dashboardData: DashboardData = {
       id: "balance",
       title: "Balance Information",
       data: [
-        { label: "Given Bal", value: 100.0, color: "#22c55e" },
-        { label: "Available", value: 50.0, color: "#22c55e" },
+        { label: "Given Bal", value: 100.0, color: "#33F071" },
+        { label: "Available", value: 50.0, color: "#33F071" },
       ],
     },
     {

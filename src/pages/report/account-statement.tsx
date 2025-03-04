@@ -14,6 +14,9 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
 import { SHOW_ENTRIES } from "@/utils/constants/pagination";
 import { Pagination } from "@/components/common/pagination";
+import Image from "next/image";
+import csv from "@/assets/icons/csv.png";
+import pdf from "@/assets/icons/pdf.png";
 
 type ReportDropdown = {
   [key: string]: {
@@ -41,33 +44,6 @@ const REPORT_DROPDOWN: ReportDropdown = {
     ALL: "ALL",
   },
 };
-
-// interface ISelectComponent {
-//   selected: string;
-//   setSelected: (value: string) => void;
-//   data: string[];
-// }
-
-// const selectComponent = ({ selected, setSelected, data }: ISelectComponent) => {
-//   return (
-//     <Select
-//       className="w-full sm:max-w-xs border border-gray-300 rounded text-[#495057]"
-//       value={selected}
-//       onChange={setSelected}
-//     >
-//       <SelectTrigger className="h-10 w-full flex items-center justify-between px-3 border border-gray-300 rounded bg-white">
-//         <SelectValue placeholder={selected} />
-//         <ChevronDown className="h-4 w-4 ml-2" />
-//       </SelectTrigger>
-//       <SelectContent>
-//         {data &&
-//           data.map((sports: string, index) => (
-//             <SelectItem key={index} value={sports}>{sports}</SelectItem>
-//           ))}
-//       </SelectContent>
-//     </Select>
-//   );
-// };
 
 const UserDataPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -189,23 +165,40 @@ const UserDataPage = () => {
         {showDetails && (
           <div className="space-y-6 mt-6">
             <div className="flex items-center justify-between">
-              <Input
-                type="text"
-                placeholder="Search by client"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={handleKeyDown}
-                className="h-10 sm:max-w-sm border border-gray-300 rounded px-3"
-              />
+              <div className="flex gap-1">
+                <Input
+                  type="text"
+                  placeholder="Search by client"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  className="h-10 sm:max-w-sm border border-gray-300 rounded px-3"
+                />
+                {[csv, pdf].map((title, index) => (
+                  <button key={index} type="button">
+                    <Image
+                      src={title}
+                      alt={title.toString()}
+                      width={40}
+                      height={40}
+                      className="rounded-md"
+                    />
+                  </button>
+                ))}
+              </div>
               <table className="border border-gray-300 w-1/3">
                 <tbody>
                   <tr>
                     <td className="px-4 py-1 border">Opening Balance</td>
-                    <td className="px-4 py-1 border font-bold">0.00</td>
+                    <td className="px-4 py-1 border font-bold text-[#0E7926]">
+                      0.00
+                    </td>
                   </tr>
                   <tr>
                     <td className="px-4 py-1 border">Closing Balance</td>
-                    <td className="px-4 py-1 border font-bold">0.00</td>
+                    <td className="px-4 py-1 border font-bold text-[#0E7926]">
+                      0.00
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -251,7 +244,9 @@ const UserDataPage = () => {
                     </td>
                     <td className="px-4 py-2 border-r">152.58.34.51</td>
                     <td className="px-4 py-2 border-r">DESKTOP</td>
-                    <td className="px-4 py-2 border-r font-bold">0.00</td>
+                    <td className="px-4 py-2 border-r font-bold text-[#0E7926]">
+                      0.00
+                    </td>
                     <td className="px-4 py-2 border-r">Closing Balance</td>
                     <td className="px-4 py-2 border-r"></td>
                   </tr>

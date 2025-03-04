@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { NAVIGATION_PATHS } from "@/utils/constants/routes";
 
 export default function LoginForm() {
+  const [loader, setLoader] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -45,15 +46,17 @@ export default function LoginForm() {
         return;
       }
     }
-
+    setLoader(true);
     if (Number(captchaAnswer) !== captcha.num1 + captcha.num2) {
       Toast.error("Invalid CAPTCHA");
       refreshCaptcha();
       return;
     }
-
-    Toast.success("Login successful");
-    router.push(NAVIGATION_PATHS.DASHBOARD);
+    setTimeout(() => {
+      Toast.success("Login successful");
+      setLoader(false);
+      router.push(NAVIGATION_PATHS.DASHBOARD);
+    }, 1500);
   };
 
   return (
@@ -134,7 +137,7 @@ export default function LoginForm() {
 
           {/* Login Button */}
           <div className="space-y-1">
-            <GradientButton label="LOGIN" />
+            <GradientButton label="LOGIN" insideLoader={loader} />
           </div>
         </form>
       </div>

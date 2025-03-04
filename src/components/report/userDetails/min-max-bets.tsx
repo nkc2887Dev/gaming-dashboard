@@ -69,7 +69,7 @@ export function MinMaxBetsTable({ options }: MinMaxBetsTableProps) {
                       >
                         {col}
                       </TableCell>
-                    ))
+                    )),
                   )}
                 </TableRow>
               </TableHeader>

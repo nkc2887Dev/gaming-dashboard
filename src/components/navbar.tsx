@@ -34,7 +34,7 @@ export default function Navbar({ className }: { className: string }) {
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    path: string
+    path: string,
   ) => {
     if (router.pathname === path) {
       e.preventDefault();
@@ -42,7 +42,7 @@ export default function Navbar({ className }: { className: string }) {
       router.push(path);
     }
   };
-  
+
   const toggleDropdown = (dropdownName: string) => {
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
@@ -299,7 +299,7 @@ export default function Navbar({ className }: { className: string }) {
           "top-14 h-[calc(100vh-3.5rem)]", // Default for desktop
           "md:top-14 md:h-[calc(100vh-3.5rem)]", // Adjust for tablets
           "sm:top-12 sm:h-[calc(100vh-3rem)]", // Adjust for smaller screens
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          isMenuOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
         <nav className="flex h-full flex-col text-white">

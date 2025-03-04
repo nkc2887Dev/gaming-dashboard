@@ -1,22 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html,
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: #f0f0f5;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Prevents unwanted scrolling on the whole page */
-}
-
 .dot-spinner {
   --uib-size: 1.5rem;
   --uib-speed: 0.9s;
-  --uib-color: #f0f0f5;
+  --uib-color: #183153;
   position: relative;
   display: flex;
   align-items: center;
@@ -114,40 +99,5 @@ body {
   50% {
     transform: scale(1);
     opacity: 1;
-  }
-}
-
-.loader {
-  height: 20px;
-  aspect-ratio: 4;
-  --_g: no-repeat radial-gradient(farthest-side, #128AA3 90%, #128AA3);
-  background:
-    var(--_g) left,
-    var(--_g) right;
-  background-size: 25% 100%;
-  display: grid;
-}
-.loader:before,
-.loader:after {
-  content: "";
-  height: inherit;
-  aspect-ratio: 1;
-  grid-area: 1/1;
-  margin: auto;
-  border-radius: 50%;
-  transform-origin: -100% 50%;
-  background: #016A82;
-  animation: l49 1s infinite linear;
-}
-.loader:after {
-  transform-origin: 200% 50%;
-  --s: -1;
-  animation-delay: -0.5s;
-}
-
-@keyframes l49 {
-  58%,
-  100% {
-    transform: rotate(calc(var(--s, 1) * 1turn));
   }
 }

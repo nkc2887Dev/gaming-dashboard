@@ -8,12 +8,14 @@ import WithdrawalModal from "@/components/common/model/withdrawal";
 import ChangePasswordModal from "@/components/common/model/changePassword";
 import MasterPasswordModal from "@/components/common/model/MasterPassword";
 import LastLoginModal from "@/components/common/model/lastLogin";
+import Spinner from "@/components/common/loader/spinner";
 
 const username = "testsuperadmin123";
 interface GradientButton {
   label: string;
   redirect?: string;
   className?: string;
+  insideLoader?: boolean;
   size?: "lg" | "default" | "sm" | "icon";
   onclick?: () => void;
 }
@@ -24,13 +26,15 @@ const GradientButton = ({
   redirect = "",
   size,
   onclick,
+  insideLoader = false,
 }: GradientButton) => {
   return (
     <Button
       onClick={onclick}
       {...(size ? { size } : {})}
-      className={`${className} rounded-md font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#1497AF] to-[#022D44] text-white shadow-md hover:bg-[#017082]`}
+      className={`${className} flex items-center justify-center gap-2 rounded-md font-bold border border-[1.5px] border-[#026473] bg-gradient-to-b from-[#1497AF] to-[#022D44] text-white shadow-md hover:bg-[#017082]`}
     >
+      {insideLoader && <Spinner />}
       {redirect ? <Link href={redirect}>{label}</Link> : label}
     </Button>
   );
