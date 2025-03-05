@@ -41,3 +41,31 @@ export interface UserData {
   gamePlays: GamePlay[];
   minMaxData: BettingLimits;
 }
+
+export interface AccountDetailsSectionProps {
+  accountDetails: AccountDetails;
+}
+
+export interface GamePlaySectionProps {
+  gamePlays: GamePlay[];
+}
+
+export interface MinMaxBetsTableProps {
+  data?: BettingLimits;
+  options?:
+    | {
+        title?: string;
+        titleBg?: string;
+        border?: string;
+      }
+    | undefined;
+}
+
+export interface UserDetailsSectionProps {
+  userDetails: UserDetails;
+}
+
+export interface DetailGroupProps {
+  details: { key: keyof UserDetails; label: string }[];
+  userDetails: UserDetails;
+}

@@ -13,14 +13,12 @@ const MasterSettlement = () => {
       <h2 className="text-lg font-semibold mb-2">Master Settlement</h2>
       <div className="flex items-center gap-8">
         <SettlementTable
-          title="Master Settlement"
           subTitle="Creditors Account (dena hai)"
           headers={settlementHeadersWithBal}
           data={sampleCreditMasterSettlementData}
           headerColor="bg-[#28A745]"
         />
         <SettlementTable
-          title="Master Settlement"
           subTitle="Debtors Account (lena hai)"
           headers={settlementHeaders}
           data={sampleDebitMasterSettlementData}

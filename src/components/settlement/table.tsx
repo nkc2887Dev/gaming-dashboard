@@ -8,7 +8,6 @@ import {
 import type { SettlementTableProps } from "@/@types/settlement";
 
 export function SettlementTable({
-  title,
   subTitle,
   headers,
   data,

@@ -3,14 +3,7 @@
 import type React from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-
-interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
-  basePath?: string;
-  queryParam?: string;
-  onPageChange?: (page: number) => void;
-}
+import { PaginationProps } from "@/@types/common";
 
 export const Pagination: React.FC<PaginationProps> = ({
   currentPage,

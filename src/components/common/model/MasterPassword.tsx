@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { GradientButton } from "@/components/ui/gradient-button";
 import Input from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
-
-interface MasterModalProps {
-  title: string;
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { MasterModalProps } from "@/@types/common";
 
 const MasterPasswordModal = ({ isOpen, onClose, title }: MasterModalProps) => {
   const [password, setPassword] = useState("");

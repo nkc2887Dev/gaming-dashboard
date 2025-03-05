@@ -3,17 +3,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Button } from "@/components/ui/button";
-
-interface MasterModalProps {
-  title: string;
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { MasterModalProps } from "@/@types/common";
 
 const LastLoginModal = ({ isOpen, onClose, title }: MasterModalProps) => {
-  if (!isOpen) return null;
   const [fromDate, setFromDate] = useState<Date | null>(new Date());
   const [toDate, setToDate] = useState<Date | null>(new Date());
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

@@ -1,5 +1,3 @@
-import React from "react";
-
 const HoverText = ({ value }: { value: string }) => {
   return (
     <div className="relative group w-fit">

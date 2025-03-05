@@ -12,7 +12,7 @@ export interface TableHeader {
 }
 
 export interface SettlementTableProps {
-  title: string;
+  title?: string;
   subTitle: string;
   headerColor: string;
   headers: TableHeader[];

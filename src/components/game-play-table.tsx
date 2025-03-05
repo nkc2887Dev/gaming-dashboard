@@ -1,3 +1,4 @@
+import { TableProps } from "@/@types/game";
 import {
   Table,
   TableBody,
@@ -6,11 +7,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
-interface TableProps {
-  headers: string[];
-  data: (string | number | null)[][];
-}
 
 export function GamePlayTable({ headers, data }: TableProps) {
   return (

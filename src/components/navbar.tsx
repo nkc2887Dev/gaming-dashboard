@@ -17,14 +17,7 @@ import { useRouter } from "next/router";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import logo from "@/assets/image/logo.jpg";
-import { NAVIGATION_PATHS } from "@/utils/constants/routes";
-
-const NAVBAR_MENU = {
-  SETTLEMENT: "settlement",
-  REPORT: "report",
-  CONTROL: "control",
-  PROFILE: "profile",
-};
+import { NAVBAR_DROPDOWN, NAVIGATION_PATHS } from "@/utils/constants/routes";
 
 export default function Navbar({ className }: { className: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -253,17 +246,17 @@ export default function Navbar({ className }: { className: string }) {
         {/* Profile Dropdown */}
         <div className="flex gap-4 relative dropdown">
           <button
-            onClick={() => toggleDropdown(NAVBAR_MENU.PROFILE)}
+            onClick={() => toggleDropdown(NAVBAR_DROPDOWN.PROFILE)}
             className="flex items-center gap-1 hover:text-gray-300"
           >
             {"user"}{" "}
             <ArrowBigDownDash
               className={`h-5 w-5 text-white transition-transform ${
-                activeDropdown === NAVBAR_MENU.PROFILE ? "rotate-180" : ""
+                activeDropdown === NAVBAR_DROPDOWN.PROFILE ? "rotate-180" : ""
               }`}
             />
           </button>
-          {activeDropdown === NAVBAR_MENU.PROFILE && (
+          {activeDropdown === NAVBAR_DROPDOWN.PROFILE && (
             <div className="absolute bottom-0 right-0 translate-y-full w-40 bg-white text-black py-2 rounded shadow-lg">
               <Link
                 href={NAVIGATION_PATHS.CHANGE_PASSWORD}

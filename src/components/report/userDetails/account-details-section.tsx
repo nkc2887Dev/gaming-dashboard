@@ -1,10 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import type { AccountDetails } from "@/@types/userDetails";
-
-interface AccountDetailsSectionProps {
-  accountDetails: AccountDetails;
-}
+import type {
+  AccountDetails,
+  AccountDetailsSectionProps,
+} from "@/@types/userDetails";
 
 const accountFields = [
   { key: "creditRef", label: "Credit Ref :" },

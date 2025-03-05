@@ -7,16 +7,7 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent } from "@/components/ui/card";
 import Input from "@/components/ui/input";
-
-interface CasinoMaxBetsTableProps {
-  options?:
-    | {
-        title?: string;
-        titleBg?: string;
-        border?: string;
-      }
-    | undefined;
-}
+import { CasinoMaxBetsTableProps } from "@/@types/client";
 
 const headers = [
   { sport: "Indian Poker/ Live Casino" },

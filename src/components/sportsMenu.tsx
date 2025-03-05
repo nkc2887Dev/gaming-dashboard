@@ -9,13 +9,9 @@ import {
 import { sportsData } from "@/lib/menu-data";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { DROPDOWN_MENUS, NAVBAR_MENU } from "@/utils/constants/routes";
-interface ISportsMenu {
-  isMobile: boolean;
-  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
-  isMenuOpen: boolean;
-}
+import { ISportsMenu } from "@/@types/sportsmenu";
 
 export default function SportsMenu({ isMobile, setIsMenuOpen }: ISportsMenu) {
   const [expandedSports, setExpandedSports] = useState<string[]>([]);

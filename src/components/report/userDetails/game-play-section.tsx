@@ -1,10 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { GamePlayTable } from "@/components/game-play-table";
-import type { GamePlay } from "@/@types/userDetails";
-
-interface GamePlaySectionProps {
-  gamePlays: GamePlay[];
-}
+import type { GamePlaySectionProps } from "@/@types/userDetails";
 
 export function GamePlaySection({ gamePlays }: GamePlaySectionProps) {
   return (

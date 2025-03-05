@@ -1,8 +1,5 @@
+import { InputProps } from "@headlessui/react";
 import React from "react";
-
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-}
 
 const Input: React.FC<InputProps> = ({ label, className, ...props }) => {
   return (

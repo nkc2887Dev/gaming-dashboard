@@ -16,25 +16,9 @@ import { Label } from "@/components/ui/label";
 import { MinMaxBetsTable } from "@/components/report/userDetails/min-max-bets";
 import { mockData } from "@/lib/user-details";
 import { CasinoMaxBetsTable } from "./casinoMaxBets";
-import Loader from "../common/loader/loader";
+import Loader from "@/components/common/loader/loader";
 import { ROLES } from "@/utils/constants/common";
-
-type ClientFormData = {
-  userType: string;
-  client: string;
-  userName: string;
-  password: string;
-  reTypePassword: string;
-  refName: string;
-  creditReference: string;
-  addDeposit: string;
-  depositRemark: string;
-  commission: string;
-  downlineSharing: string;
-  maxBet: string;
-  maxProfit: string;
-  masterPassword: string;
-};
+import { ClientFormData } from "@/@types/client";
 
 const ClientFormDefaultData = {
   userType: undefined,

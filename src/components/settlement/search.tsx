@@ -1,4 +1,3 @@
-import React from "react";
 import Input from "@/components/ui/input";
 import { GradientButton } from "@/components/ui/gradient-button";
 

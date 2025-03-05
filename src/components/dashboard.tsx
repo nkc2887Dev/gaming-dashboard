@@ -14,29 +14,8 @@ import {
 } from "@/components/ui/select";
 import { GradientButton } from "@/components/ui/gradient-button";
 import Popup from "./ui/popup";
+import { Market, MetricBox, Player } from "@/@types/dashboard";
 
-interface MetricBox {
-  title: string;
-  value: number;
-}
-
-interface Player {
-  player: string;
-  amount: number;
-}
-
-interface Market {
-  sport: string;
-  market: string;
-  amount: number;
-}
-
-// interface CasinoDetail {
-//   name: string;
-//   value: number;
-// }
-
-// Sample data
 const metricBoxes: MetricBox[] = [
   { title: "P&L", value: 0 },
   { title: "COMMISSION", value: 0 },

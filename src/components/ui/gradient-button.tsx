@@ -9,16 +9,9 @@ import ChangePasswordModal from "@/components/common/model/changePassword";
 import MasterPasswordModal from "@/components/common/model/MasterPassword";
 import LastLoginModal from "@/components/common/model/lastLogin";
 import Spinner from "@/components/common/loader/spinner";
+import { IGradientButton } from "@/@types/ui";
 
 const username = "testsuperadmin123";
-interface GradientButton {
-  label: string;
-  redirect?: string;
-  className?: string;
-  insideLoader?: boolean;
-  size?: "lg" | "default" | "sm" | "icon";
-  onclick?: () => void;
-}
 
 const GradientButton = ({
   label,
@@ -27,7 +20,7 @@ const GradientButton = ({
   size,
   onclick,
   insideLoader = false,
-}: GradientButton) => {
+}: IGradientButton) => {
   return (
     <Button
       onClick={onclick}

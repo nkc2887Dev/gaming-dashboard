@@ -3,17 +3,13 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import Input from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 import { Label } from "@/components/ui/label";
-
-interface MasterModalProps {
-  title: string;
-  isOpen: boolean;
-  onClose: () => void;
-}
+import { MasterModalProps } from "@/@types/common";
 
 const ChangePasswordModal = ({ isOpen, onClose, title }: MasterModalProps) => {
-  if (!isOpen) return null;
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

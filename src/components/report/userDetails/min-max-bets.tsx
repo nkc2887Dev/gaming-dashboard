@@ -5,20 +5,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import type { BettingLimits } from "@/@types/betting";
 import { Card, CardContent } from "@/components/ui/card";
 import Input from "@/components/ui/input";
-
-interface MinMaxBetsTableProps {
-  data?: BettingLimits;
-  options?:
-    | {
-        title?: string;
-        titleBg?: string;
-        border?: string;
-      }
-    | undefined;
-}
+import { MinMaxBetsTableProps } from "@/@types/userDetails";
 
 const headers = [
   { sport: "Cricket", columns: ["Odds", "Bookmaker", "Fancy", "Lottery"] },

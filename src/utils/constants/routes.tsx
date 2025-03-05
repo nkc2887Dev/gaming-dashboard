@@ -25,6 +25,13 @@ export const NAVIGATION_PATHS = {
   LOGOUT: "/profile/logout",
 };
 
+export const NAVBAR_DROPDOWN = {
+  SETTLEMENT: "settlement",
+  REPORT: "report",
+  CONTROL: "control",
+  PROFILE: "profile",
+};
+
 export const NAVBAR_MENU = [
   { name: "Dashboard", symbol: "🏠", path: NAVIGATION_PATHS.DASHBOARD },
   { name: "Clients", symbol: "👥", path: NAVIGATION_PATHS.CLIENT },

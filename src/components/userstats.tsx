@@ -1,17 +1,7 @@
 import React from "react";
 import ToolTip from "@/components/ui/tooltip";
-
-interface UserData {
-  id: string;
-  type: string;
-  givenBalance: number;
-  availableBalance: number;
-  upLine: number;
-  downLine: number;
-  currentPL: number;
-  myPL: number;
-  exposure: number;
-}
+import { UserData } from "@/@types/user";
+import { tooltips } from "@/utils/constants/common";
 
 const userData: UserData = {
   id: "dmmo123",
@@ -23,18 +13,6 @@ const userData: UserData = {
   currentPL: 0,
   myPL: 0,
   exposure: 0,
-};
-
-const tooltips = {
-  id: "user name.",
-  type: "user role.",
-  givenBalance: "Aapko upar se diya gaya balance.",
-  availableBalance: "Aapka upyog ke liye uplabdh balance.",
-  upLine: "Aapke upline ka count.",
-  downLine: "Aapke downline ka count.",
-  currentPL: "Aapka vartaman labh ya haani.",
-  exposure: "Aapka kul risk exposure.",
-  myPL: "Aapka vyaktigat labh ya haani.",
 };
 
 const UserStats: React.FC = () => {

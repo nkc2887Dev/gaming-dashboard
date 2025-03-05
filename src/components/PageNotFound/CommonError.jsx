@@ -1,6 +1,5 @@
-import { NAVIGATION_PATHS } from "@/utils/constants/routes";
 import { useRouter } from "next/router";
-import React from "react";
+import { NAVIGATION_PATHS } from "@/utils/constants/routes";
 
 const CommonError = ({ title, subtext }) => {
   const router = useRouter();

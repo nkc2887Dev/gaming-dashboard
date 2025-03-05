@@ -1,16 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import type { UserDetails } from "@/@types/userDetails";
+import type {
+  DetailGroupProps,
+  UserDetails,
+  UserDetailsSectionProps,
+} from "@/@types/userDetails";
 import HoverText from "@/components/common/hoverText";
-
-interface UserDetailsSectionProps {
-  userDetails: UserDetails;
-}
-
-interface DetailGroupProps {
-  details: { key: keyof UserDetails; label: string }[];
-  userDetails: UserDetails;
-}
 
 const DetailGroup = ({ details, userDetails }: DetailGroupProps) => (
   <div className="space-y-3">
