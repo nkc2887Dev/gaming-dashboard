@@ -164,8 +164,8 @@ const UserDataPage = () => {
         {/* User Details Section */}
         {showDetails && (
           <div className="space-y-6 mt-6">
-            <div className="flex items-center justify-between">
-              <div className="flex gap-1">
+            <div className="flex items-center justify-between flex-wrap md:flex-nowrap gap-2">
+              <div className="flex items-center justify-between flex-wrap md:flex-nowrap gap-2">
                 <Input
                   type="text"
                   placeholder="Search by client"
@@ -174,17 +174,21 @@ const UserDataPage = () => {
                   onKeyDown={handleKeyDown}
                   className="h-10 sm:max-w-sm border border-gray-300 rounded px-3"
                 />
-                {[csv, pdf].map((title, index) => (
-                  <button key={index} type="button">
-                    <Image
-                      src={title}
-                      alt={title.toString()}
-                      width={40}
-                      height={40}
-                      className="rounded-md"
-                    />
-                  </button>
-                ))}
+                <div className="flex items-center justify-between flex-wrap md:flex-nowrap gap-2">
+                  {[csv, pdf].map((title, index) => (
+                    <div key={index}>
+                      <button type="button">
+                        <Image
+                          src={title}
+                          alt={title.toString()}
+                          width={40}
+                          height={40}
+                          className="sm:max-w-sm rounded-md"
+                        />
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
               <table className="border border-gray-300 w-1/3">
                 <tbody>

@@ -99,8 +99,8 @@ const ClientList = () => {
         <div className="p-4 sm:p-6 border rounded bg-white shadow-md">
           <h2 className="text-lg font-semibold">Client List</h2>
           <div className="space-y-1">
-            <div className="flex items-center justify-between flex-wrap sm:flex-nowrap">
-              <div className="flex items-center justify-between flex-wrap sm:flex-nowrap gap-2">
+            <div className="flex items-center justify-between flex-wrap lg:flex-nowrap">
+              <div className="flex items-center justify-between flex-wrap md:flex-nowrap gap-2">
                 <Input
                   type="text"
                   placeholder="Search by client"
@@ -117,17 +117,21 @@ const ClientList = () => {
                   onKeyDown={handleKeyDown}
                   className="h-8 sm:max-w-sm border border-gray-300 rounded"
                 />
-                {[csv, csvall, pdf, pdfall].map((title, index) => (
-                  <button key={index} type="button">
-                    <Image
-                      src={title}
-                      alt={title.toString()}
-                      width={40}
-                      height={40}
-                      className="rounded-md"
-                    />
-                  </button>
-                ))}
+                <div className="flex items-center justify-between flex-wrap md:flex-nowrap gap-2">
+                  {[csv, csvall, pdf, pdfall].map((title, index) => (
+                    <div key={index}>
+                      <button type="button">
+                        <Image
+                          src={title}
+                          alt={title.toString()}
+                          width={40}
+                          height={40}
+                          className="sm:max-w-sm rounded-md"
+                        />
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className="flex items-center text-sm flex-wrap sm:flex-nowrap font-bold">
                 <div className="flex items-center text-sm mr-2">

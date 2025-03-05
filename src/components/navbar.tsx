@@ -87,28 +87,33 @@ export default function Navbar({ className }: { className: string }) {
               <Menu className="h-6 w-6" />
             )}
           </Button>
-          <Image
-            src={logo}
-            alt="Logo"
-            width={40}
-            height={40}
-            className="rounded-md mr-10"
-          />
+          <Link href={NAVIGATION_PATHS.DASHBOARD}>
+            <Image
+              src={logo}
+              alt="Logo"
+              width={40}
+              height={40}
+              className="rounded-md mr-10"
+            />
+          </Link>
           {!isMobile && (
             <>
-              <Link className="block p-2 hover:bg-[#16A4BC]" href="/dashboard">
+              <Link
+                className="block p-2 hover:bg-[#16A4BC]"
+                href={NAVIGATION_PATHS.DASHBOARD}
+              >
                 Dashboard
               </Link>
               <Link
                 className="block p-2 hover:bg-[#16A4BC]"
-                href="/client"
+                href={NAVIGATION_PATHS.CLIENT}
                 onClick={(e) => handleClick(e, "/client")}
               >
                 Clients
               </Link>
               <Link
                 className="block p-2 hover:bg-[#16A4BC]"
-                href="/sport-analysis"
+                href={NAVIGATION_PATHS.SPORT_ANALYSIS}
               >
                 Sport Analysis
               </Link>
@@ -121,14 +126,14 @@ export default function Navbar({ className }: { className: string }) {
                 </button>
                 <div className="z-[9999] absolute left-0 mt-2 w-40 bg-[#16A4BC] text-white py-2 rounded shadow-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <Link
-                    href="/settlement/user"
+                    href={NAVIGATION_PATHS.USER_SETTLEMENT}
                     className="block p-2 hover:bg-[#017082] text-sm"
                   >
                     User
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/settlement/master"
+                    href={NAVIGATION_PATHS.MASTER_SETTLEMENT}
                     className="block p-2 hover:bg-[#017082] text-sm"
                   >
                     Master
@@ -235,7 +240,7 @@ export default function Navbar({ className }: { className: string }) {
                 </button>
                 <div className="z-[9999] absolute left-0 mt-2 w-40 bg-[#16A4BC] text-white py-2 rounded shadow-lg  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <Link
-                    href="/control/game"
+                    href={NAVIGATION_PATHS.GAME_CONTROL}
                     className="block p-2 hover:bg-[#017082] text-sm"
                   >
                     Game
@@ -261,14 +266,14 @@ export default function Navbar({ className }: { className: string }) {
           {activeDropdown === NAVBAR_MENU.PROFILE && (
             <div className="absolute bottom-0 right-0 translate-y-full w-40 bg-white text-black py-2 rounded shadow-lg">
               <Link
-                href="/profile/change-password"
+                href={NAVIGATION_PATHS.CHANGE_PASSWORD}
                 className="block w-full flex items-center py-2 hover:bg-[#159ab3] hover:text-white text-sm group"
               >
                 <MoveRight className="text-black group-hover:text-white h-4 w-4 mr-2" />
                 Change Password
               </Link>
               <Link
-                href="/"
+                href={NAVIGATION_PATHS.BASE}
                 className="block w-full flex items-center py-2 hover:bg-[#159ab3] hover:text-white text-sm group"
               >
                 <MoveRight className="text-black group-hover:text-white h-4 w-4 mr-2" />{" "}

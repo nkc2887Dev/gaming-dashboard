@@ -54,7 +54,7 @@ export default function SportsMenu({ isMobile, setIsMenuOpen }: ISportsMenu) {
     <div className="w-full bg-[#008fb3] text-white min-h-screen md:w-64">
       {isMobile && (
         <div className="pl-2">
-          {NAVBAR_MENU.map(({ name, path }) => (
+          {NAVBAR_MENU.map(({ name, symbol, path }) => (
             <Link
               key={path}
               className="w-full border-b border-[#159ab3] flex items-center justify-between p-3 hover:bg-[#42C2E2] transition-colors"
@@ -62,7 +62,9 @@ export default function SportsMenu({ isMobile, setIsMenuOpen }: ISportsMenu) {
               onClick={() => handleClick(path)}
             >
               <div className="flex items-center gap-3">
-                <span className="text-base font-medium">▶ {name}</span>
+                <span className="text-base font-medium">
+                  {symbol} {name}
+                </span>
               </div>
             </Link>
           ))}
@@ -76,7 +78,11 @@ export default function SportsMenu({ isMobile, setIsMenuOpen }: ISportsMenu) {
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-base font-medium">
-                      ▶ {key.charAt(0).toUpperCase() + key.slice(1)}
+                      {
+                        DROPDOWN_MENUS[key as keyof typeof DROPDOWN_MENUS][0]
+                          .symbol
+                      }{" "}
+                      {key.charAt(0).toUpperCase() + key.slice(1)}
                     </span>
                   </div>
                   <ArrowBigDownDash
@@ -87,7 +93,7 @@ export default function SportsMenu({ isMobile, setIsMenuOpen }: ISportsMenu) {
                 </button>
                 {activeDropdown === key && (
                   <div>
-                    {items.map(({ name, path }) => (
+                    {items.map(({ name, symbol, path }) => (
                       <Link
                         key={path}
                         href={path}
@@ -95,7 +101,9 @@ export default function SportsMenu({ isMobile, setIsMenuOpen }: ISportsMenu) {
                         onClick={() => handleClick(path)}
                       >
                         <div className="flex items-center p-3 text-sm hover:bg-white/10 transition-colors cursor-pointer">
-                          <span>{name}</span>
+                          <span>
+                            {symbol} {name}
+                          </span>
                         </div>
                       </Link>
                     ))}
