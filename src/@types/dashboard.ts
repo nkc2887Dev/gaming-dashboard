@@ -8,6 +8,11 @@ export interface Player {
   amount: number;
 }
 
+export interface UserCount {
+  role: string;
+  count: number;
+}
+
 export interface Market {
   sport: string;
   market: string;

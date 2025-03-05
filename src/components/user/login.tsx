@@ -16,7 +16,7 @@ import { LoginFormInputs } from "@/@types/login";
 import { loginSchema } from "@/utils/schemas/login";
 
 const generateCaptcha = () => ({
-  num1: Math.floor(Math.random() * 10) + 1,
+  num1: Math.floor(Math.random() * 100) + 1,
   num2: Math.floor(Math.random() * 10) + 1,
 });
 
@@ -125,11 +125,11 @@ export default function LoginForm() {
 
           {/* Captcha */}
           <div className="space-y-1">
-            <div className="flex items-center justify-between bg-gray-200 rounded-md p-2 border border-gray-400">
+            <div className="flex items-center justify-between bg-gray-200 rounded-md py-2 px-3 border border-gray-400">
               <span className="text-black">
                 {captcha.num1} + {captcha.num2}
               </span>
-              <span className="text-black">= </span>
+              <span className="text-black">=</span>
               <Input
                 type="text"
                 {...register("captchaAnswer")}

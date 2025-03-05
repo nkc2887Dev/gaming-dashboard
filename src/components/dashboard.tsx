@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { GradientButton } from "@/components/ui/gradient-button";
 import Popup from "./ui/popup";
-import { Market, MetricBox, Player } from "@/@types/dashboard";
+import { Market, MetricBox, Player, UserCount } from "@/@types/dashboard";
 
 const metricBoxes: MetricBox[] = [
   { title: "P&L", value: 0 },
@@ -29,6 +29,7 @@ const winningPlayers: Player[] = [];
 const losingPlayers: Player[] = [];
 const winningMarkets: Market[] = [];
 const losingMarkets: Market[] = [];
+const userCount: UserCount[] = [];
 
 // const casinoDetails: CasinoDetail[] = [
 //   { name: "Indian Poker/ Live Casino P&L", value: 0 },
@@ -110,7 +111,7 @@ export default function Dashboard() {
           className="bg-white rounded-md overflow-hidden border shadow-xl"
           style={{ boxShadow: "0px 4px 10px rgba(22, 163, 187, 0.3)" }}
         >
-          <h2 className="text-md font-bold bg-[#16A3BB] text-black p-2">
+          <h2 className="text-sm font-bold bg-[#16A3BB] text-black p-2">
             TOP 5 WINNING PLAYER
           </h2>
           <table className="w-full">
@@ -120,15 +121,20 @@ export default function Dashboard() {
                 <th className="text-right text-sm p-2 border-l">Amount</th>
               </tr>
             </thead>
-            <tbody>
-              {winningPlayers.length === 0 && (
-                <tr>
-                  <td colSpan={2} className="text-center text-sm p-2">
-                    No data available
-                  </td>
-                </tr>
-              )}
-            </tbody>
+            {winningPlayers.length > 0 && (
+              <tbody>
+                {winningPlayers.map((player, index) => (
+                  <tr key={index} className="border-t">
+                    <td className="text-left text-sm p-2 border-l">
+                      {player.player}
+                    </td>
+                    <td className="text-right text-sm p-2 border-l">
+                      {player.amount}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
           </table>
         </div>
 
@@ -148,15 +154,20 @@ export default function Dashboard() {
                 <th className="text-right text-sm p-2 border-l">Amount</th>
               </tr>
             </thead>
-            <tbody>
-              {losingPlayers.length === 0 && (
-                <tr>
-                  <td colSpan={2} className="text-center text-sm p-2">
-                    No data available
-                  </td>
-                </tr>
-              )}
-            </tbody>
+            {losingPlayers.length > 0 && (
+              <tbody>
+                {losingPlayers.map((player, index) => (
+                  <tr key={index} className="border-t">
+                    <td className="text-left text-sm p-2 border-l">
+                      {player.player}
+                    </td>
+                    <td className="text-right text-sm p-2 border-l">
+                      {player.amount}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
           </table>
         </div>
 
@@ -176,15 +187,23 @@ export default function Dashboard() {
                 <th className="text-right text-sm p-2 border-l">Amount</th>
               </tr>
             </thead>
-            <tbody>
-              {winningMarkets.length === 0 && (
-                <tr>
-                  <td colSpan={3} className="text-center text-sm p-2">
-                    No data available
-                  </td>
-                </tr>
-              )}
-            </tbody>
+            {winningMarkets.length > 0 && (
+              <tbody>
+                {winningMarkets.map((player, index) => (
+                  <tr key={index} className="border-t">
+                    <td className="text-left text-sm p-2 border-l">
+                      {player.sport}
+                    </td>
+                    <td className="text-right text-sm p-2 border-l">
+                      {player.market}
+                    </td>
+                    <td className="text-right text-sm p-2 border-l">
+                      {player.amount}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
           </table>
         </div>
 
@@ -204,15 +223,23 @@ export default function Dashboard() {
                 <th className="text-right text-sm p-2 border-l">Amount</th>
               </tr>
             </thead>
-            <tbody>
-              {losingMarkets.length === 0 && (
-                <tr>
-                  <td colSpan={3} className="text-center text-sm p-2">
-                    No data available
-                  </td>
-                </tr>
-              )}
-            </tbody>
+            {losingMarkets.length > 0 && (
+              <tbody>
+                {losingMarkets.map((player, index) => (
+                  <tr key={index} className="border-t">
+                    <td className="text-left text-sm p-2 border-l">
+                      {player.sport}
+                    </td>
+                    <td className="text-right text-sm p-2 border-l">
+                      {player.market}
+                    </td>
+                    <td className="text-right text-sm p-2 border-l">
+                      {player.amount}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
           </table>
         </div>
       </div>
@@ -235,13 +262,20 @@ export default function Dashboard() {
                   <th className="text-right text-sm border-l">Count</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td colSpan={2} className="text-center text-sm py-2">
-                    No data available
-                  </td>
-                </tr>
-              </tbody>
+              {userCount.length > 0 && (
+                <tbody>
+                  {userCount.map((player, index) => (
+                    <tr key={index} className="border-t">
+                      <td className="text-left text-sm p-2 border-l">
+                        {player.role}
+                      </td>
+                      <td className="text-right text-sm p-2 border-l">
+                        {player.count}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              )}
             </table>
           </div>
         </div>
@@ -256,23 +290,27 @@ export default function Dashboard() {
           </h2>
           <div className="p-4">
             <Select value={selectedSport} onChange={setSelectedSport}>
-              <SelectTrigger>
-                <div className="flex items-center justify-between">
-                  <SelectValue placeholder="Select Sports" />
-                  <ChevronDown className="h-4 w-4 ml-2" />
-                </div>
+              <SelectTrigger className="text-gray-600 flex items-center justify-between text-sm px-4 py-2 bg-white border border-gray-400 rounded-md focus:outline-none">
+                <SelectValue placeholder={selectedSport} />
+                <ChevronDown className="h-4 w-4 ml-2" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="cricket">Cricket</SelectItem>
-                {/* <SelectItem value="football">Football</SelectItem> */}
-                {/* <SelectItem value="tennis">Tennis</SelectItem> */}
+              <SelectContent className="border border-gray-400">
+                {["cricket"].map((sport) => (
+                  <SelectItem
+                    key={sport}
+                    value={sport}
+                    className="rounded-sm text-sm hover:bg-[#3F83F8] py-1 hover:text-white"
+                  >
+                    {sport}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
             {/* Table */}
             <table className="w-full mt-4 border border-gray-300">
               <tbody>
                 <tr className="border-b">
-                  <td className="text-sm px-3 py-2">Total Bets</td>
+                  <td className="text-sm px-3 p-2">Total Bets</td>
                   <td className="text-sm px-3 py-2 text-right border-l">0</td>
                 </tr>
                 <tr className="border-b">
@@ -298,15 +336,20 @@ export default function Dashboard() {
           </h2>
           <div className="p-4">
             <Select value={selectedSport} onChange={setSelectedSport}>
-              <SelectTrigger>
-                <div className="flex items-center justify-between">
-                  <SelectValue placeholder="Select Other" />
-                  <ChevronDown className="h-4 w-4 ml-2" />
-                </div>
+              <SelectTrigger className="text-gray-600 flex items-center justify-between text-sm px-4 py-2 bg-white border border-gray-400 rounded-md focus:outline-none">
+                <SelectValue placeholder={selectedSport} />
+                <ChevronDown className="h-4 w-4 ml-2" />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="other1">Other 1</SelectItem>
-                <SelectItem value="other2">Other 2</SelectItem>
+              <SelectContent className="border border-gray-400">
+                {["cricket"].map((sport) => (
+                  <SelectItem
+                    key={sport}
+                    value={sport}
+                    className=" rounded-sm text-sm hover:bg-[#3F83F8] py-1 hover:text-white"
+                  >
+                    {sport}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
             <table className="w-full mt-4 border border-gray-300">
