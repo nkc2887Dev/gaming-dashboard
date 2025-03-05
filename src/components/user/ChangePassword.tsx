@@ -19,9 +19,9 @@ const ChangePassword = () => {
   };
 
   return (
-    // <div className="flex items-left justify-center">
-    <div className="w-full max-w-xs p-6 ">
-      <h2 className="font-bold">Change Password</h2>
+    // <div className="flex items-left justify-center p-4">
+    <div className="w-full max-w-xs m-2 p-4 sm:p-6 border rounded bg-white shadow-md">
+      <h2 className="text-lg font-semibold">Change Password</h2>
       <form onSubmit={handleSubmit} className="py-2 space-y-1">
         {/* Old Password */}
         <div className="space-y-1">

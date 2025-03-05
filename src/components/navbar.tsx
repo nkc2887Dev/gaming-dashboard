@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import logo from "@/assets/image/logo.jpg";
+import { NAVIGATION_PATHS } from "@/utils/constants/routes";
 
 const NAVBAR_MENU = {
   SETTLEMENT: "settlement",
@@ -143,77 +144,77 @@ export default function Navbar({ className }: { className: string }) {
                 </button>
                 <div className="z-[9999] absolute left-0 mt-2 w-52 bg-[#16A4BC] text-white py-1 rounded shadow-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                   <Link
-                    href="/report/user-detail"
+                    href={NAVIGATION_PATHS.USER_DETAIL_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     User Detail
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/account-statement"
+                    href={NAVIGATION_PATHS.ACCOUNT_STATEMENT_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Account Statement
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/settlement-balance"
+                    href={NAVIGATION_PATHS.SETTLEMENT_BALANCE_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Settlement/Balance Report
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/transaction"
+                    href={NAVIGATION_PATHS.TRANSACTION_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Transaction Report
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/current-bets"
+                    href={NAVIGATION_PATHS.CURRENT_BETS_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Current Bets
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/profit-loss"
+                    href={NAVIGATION_PATHS.PROFIT_LOSS_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Profit & Loss Report
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/event-profit-loss"
+                    href={NAVIGATION_PATHS.EVENT_PROFIT_LOSS_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Event Profit & Loss Report
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/bet-history"
+                    href={NAVIGATION_PATHS.BET_HISTORY_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Bet History
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/live-bets"
+                    href={NAVIGATION_PATHS.LIVE_BETS_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Live Bets
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/sports-revenue"
+                    href={NAVIGATION_PATHS.SPORTS_REVENUE_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     Sports Revenue
                   </Link>
                   <div className="border-b border-[#159ab3] w-full"></div>
                   <Link
-                    href="/report/ip-lookup"
+                    href={NAVIGATION_PATHS.IP_LOOKUP_REPORTS}
                     className="block px-4 py-2 hover:bg-[#017082] transition text-sm"
                   >
                     IP Lookup

@@ -69,7 +69,7 @@ const UserDataPage = () => {
   };
   const showEntries = Object.values(SHOW_ENTRIES);
   return (
-    <div className="min-h-screen p-4">
+    <div className="p-4">
       <div className="m-2 p-4 sm:p-6 border rounded bg-white shadow-md">
         <h2 className="text-lg font-semibold mb-4">Account Statement Report</h2>
 
