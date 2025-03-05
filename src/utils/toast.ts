@@ -13,19 +13,19 @@ const defaultConfig: ToastOptions = {
 };
 
 const Toast = {
-  success: (message: string, config: ToastOptions = {}) =>
+  success: (message: string | undefined, config: ToastOptions = {}) =>
     toast.success(message, { ...defaultConfig, ...config }),
 
-  error: (message: string, config: ToastOptions = {}) =>
+  error: (message: string | undefined, config: ToastOptions = {}) =>
     toast.error(message, { ...defaultConfig, ...config }),
 
-  info: (message: string, config: ToastOptions = {}) =>
+  info: (message: string | undefined, config: ToastOptions = {}) =>
     toast.info(message, { ...defaultConfig, ...config }),
 
-  warn: (message: string, config: ToastOptions = {}) =>
+  warn: (message: string | undefined, config: ToastOptions = {}) =>
     toast.warn(message, { ...defaultConfig, ...config }),
 
-  default: (message: string, config: ToastOptions = {}) =>
+  default: (message: string | undefined, config: ToastOptions = {}) =>
     toast(message, { ...defaultConfig, ...config }),
 };
 

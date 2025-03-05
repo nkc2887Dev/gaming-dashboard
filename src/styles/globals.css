@@ -10,7 +10,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevents unwanted scrolling on the whole page */
+  overflow: hidden;
 }
 
 .dot-spinner {
@@ -120,7 +120,7 @@ body {
 .loader {
   height: 20px;
   aspect-ratio: 4;
-  --_g: no-repeat radial-gradient(farthest-side, #128AA3 90%, #128AA3);
+  --_g: no-repeat radial-gradient(farthest-side, #128aa3 90%, #128aa3);
   background:
     var(--_g) left,
     var(--_g) right;
@@ -136,7 +136,7 @@ body {
   margin: auto;
   border-radius: 50%;
   transform-origin: -100% 50%;
-  background: #016A82;
+  background: #016a82;
   animation: l49 1s infinite linear;
 }
 .loader:after {

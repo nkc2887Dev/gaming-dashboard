@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Eye, EyeOff } from "lucide-react";
@@ -8,56 +10,69 @@ import Image from "next/image";
 import { GradientButton } from "@/components/ui/gradient-button";
 import logo from "@/assets/image/logo.jpg";
 import Toast from "@/utils/toast";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { NAVIGATION_PATHS } from "@/utils/constants/routes";
+import { LoginFormInputs } from "@/@types/login";
+import { loginSchema } from "@/utils/schemas/login";
+
+const generateCaptcha = () => ({
+  num1: Math.floor(Math.random() * 10) + 1,
+  num2: Math.floor(Math.random() * 10) + 1,
+});
 
 export default function LoginForm() {
   const [loader, setLoader] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [captchaAnswer, setCaptchaAnswer] = useState("");
-  const [captcha, setCaptcha] = useState({
-    num1: 10,
-    num2: 2,
-  });
+  const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
-  const refreshCaptcha = () => {
-    setCaptcha({
-      num1: Math.floor(Math.random() * 100) + 1,
-      num2: Math.floor(Math.random() * 10) + 1,
-    });
-    setCaptchaAnswer("");
-  };
+  useEffect(() => {
+    setCaptcha(generateCaptcha());
+    setIsClient(true);
+  }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    // getValues,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(loginSchema),
+  });
 
-    const validations = [
-      { condition: !username, message: "Please insert Username!" },
-      { condition: !password, message: "Please insert Password!" },
-      { condition: !captchaAnswer, message: "Solve CAPTCHA to move ahead" },
-    ];
-
-    for (const { condition, message } of validations) {
-      if (condition) {
-        Toast.error(message);
-        return;
-      }
+  useEffect(() => {
+    if (errors.username) {
+      Toast.error(errors.username.message);
+    } else if (errors.password) {
+      Toast.error(errors.password.message);
+    } else if (errors.captchaAnswer) {
+      Toast.error(errors.captchaAnswer.message);
     }
-    setLoader(true);
-    if (Number(captchaAnswer) !== captcha.num1 + captcha.num2) {
+  }, [errors]);
+
+  const refreshCaptcha = useCallback(() => {
+    setCaptcha(generateCaptcha());
+    setValue("captchaAnswer", "");
+  }, [setValue]);
+
+  const onSubmit = (data: LoginFormInputs) => {
+    if (Number(data.captchaAnswer) !== captcha.num1 + captcha.num2) {
       Toast.error("Invalid CAPTCHA");
       refreshCaptcha();
       return;
     }
+
+    setLoader(true);
     setTimeout(() => {
       Toast.success("Login successful");
       setLoader(false);
       router.push(NAVIGATION_PATHS.DASHBOARD);
     }, 1500);
   };
+
+  if (!isClient) return null;
 
   return (
     <div className="flex items-center justify-center">
@@ -74,14 +89,13 @@ export default function LoginForm() {
           />
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Username */}
           <div className="space-y-1">
             <label className="text-white text-sm">User Name:</label>
             <Input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              {...register("username")}
               className="w-full bg-white border border-gray-400 text-black px-3 py-2 rounded-md focus:outline-none"
             />
           </div>
@@ -92,8 +106,7 @@ export default function LoginForm() {
             <div className="relative">
               <Input
                 type={showPassword ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                {...register("password")}
                 className="w-full bg-white border border-gray-400 text-black px-3 py-2 rounded-md pr-10 focus:outline-none"
               />
               <button
@@ -119,8 +132,7 @@ export default function LoginForm() {
               <span className="text-black">= </span>
               <Input
                 type="text"
-                value={captchaAnswer}
-                onChange={(e) => setCaptchaAnswer(e.target.value)}
+                {...register("captchaAnswer")}
                 className="w-20 bg-white border border-gray-400 text-black px-2 py-1 rounded-md focus:outline-none"
               />
               <Button
