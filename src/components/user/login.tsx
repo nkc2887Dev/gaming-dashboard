@@ -82,7 +82,7 @@ export default function LoginForm() {
           <Image
             src={logo}
             alt="GAJANAND"
-            width={100}
+            width={200}
             height={40}
             priority
             className="rounded-md"

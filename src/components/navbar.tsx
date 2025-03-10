@@ -84,7 +84,7 @@ export default function Navbar({ className }: { className: string }) {
             <Image
               src={logo}
               alt="Logo"
-              width={40}
+              width={100}
               height={40}
               className="rounded-md mr-10"
             />
